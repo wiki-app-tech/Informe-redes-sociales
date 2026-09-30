@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "google-analytics": {
+      "command": "npx",
+      "args": ["-y", "@composio/mcp-google-analytics"],
+      "env": {
+        "COMPOSIO_API_KEY": "${COMPOSIO_API_KEY}"
+      }
+    },
+    "instagram": {
+      "command": "npx",
+      "args": ["-y", "@agentkey/mcp-instagram"],
+      "env": {
+        "AGENTKEY_API_KEY": "${AGENTKEY_API_KEY}"
+      }
+    },
+    "tiktok": {
+      "command": "npx",
+      "args": ["-y", "@agentkey/mcp-tiktok"],
+      "env": {
+        "AGENTKEY_API_KEY": "${AGENTKEY_API_KEY}"
+      }
+    },
+    "twitter": {
+      "command": "npx",
+      "args": ["-y", "@agentkey/mcp-twitter"],
+      "env": {
+        "AGENTKEY_API_KEY": "${AGENTKEY_API_KEY}"
+      }
+    },
+    "youtube": {
+      "command": "npx",
+      "args": ["-y", "@composio/mcp-youtube"],
+      "env": {
+        "COMPOSIO_API_KEY": "${COMPOSIO_API_KEY}"
+      }
+    }
+  }
+}
