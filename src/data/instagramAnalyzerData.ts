@@ -2,19 +2,32 @@ import type { InstagramProfileAuditData } from '../types/dashboard';
 
 export const INSTAGRAM_PROFILE_AUDIT: InstagramProfileAuditData = {
   handle: '@policiaprovincialtdf',
-  displayName: 'Policía Tierra del Fuego',
+  displayName: 'Policía de Tierra del Fuego AeIAS AR',
   url: 'https://www.instagram.com/policiaprovincialtdf/',
+  displayUrl: 'www.instagram.com/policiaprovincialtdf',
+  slogan: '"2026 - 20° Aniversario de la Sanción de la Ley Nacional N° 26.206 de Educación Pública Nacional"',
   verified: true,
-  avatarUrl: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=250&q=80',
+  avatarUrl: './avatar-instagram.png',
   bio: 'Policía de la Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur. Seguridad, prevención y vocación de servicio. 📞 Emergencias: 101 | 📍 Ushuaia · Río Grande · Tolhuin',
-  postsCount: 648,
-  followersCount: 19250,
-  followingCount: 142,
-  ratio: 135.5,
+  postsCount: 2267,
+  followersCount: 10800,
+  followersDisplay: '10.8k',
+  followingCount: 235,
+  ratio: 46.0,
   qualityScore: 91.4,
   qualityGrade: 'A',
-  engagementRate: 8.52,
+  engagementRate: 1.7,
   benchmarkEr: 2.10,
+
+  // InstaShadow Exact Header Metrics
+  participationRate: '1,7%',
+  participationRateDelta: '-40% respecto al mes pasado',
+  avgLikesVal: '183,6',
+  avgLikesDelta: '-39,9% respecto al mes pasado',
+  avgCommentsVal: '3.2',
+  avgCommentsDelta: '-48,2% respecto al mes pasado',
+  avgReachVal: '8287.4',
+  avgReachDelta: '+0% respecto al mes pasado',
 
   // 🛡️ 1. AUDIENCE & FAKE FOLLOWERS AUDIT
   audience: {

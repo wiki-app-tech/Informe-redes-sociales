@@ -1,6 +1,76 @@
 import React, { useState } from 'react';
 import { INSTAGRAM_PROFILE_AUDIT } from '../data/instagramAnalyzerData';
 import { IconDownload, IconExternalLink, IconHeart } from './Sidebar';
+import avatarInstagram from '../assets/avatar-instagram.png';
+
+// Official Crest of Policía de Tierra del Fuego, Antártida e Islas del Atlántico Sur
+export const PoliciaTdfBadge: React.FC<{ size?: number }> = ({ size = 76 }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Black Base Disc */}
+    <circle cx="50" cy="50" r="48" fill="#000000" stroke="#ffd700" strokeWidth="1" />
+
+    {/* Golden Sun Rays Burst (24 rays) */}
+    <g fill="#ffd700">
+      {Array.from({ length: 24 }).map((_, i) => {
+        const angle = (i * 360) / 24;
+        const isLong = i % 2 === 0;
+        return (
+          <polygon
+            key={i}
+            points={isLong ? "50,7 46,31 54,31" : "50,13 47,31 53,31"}
+            transform={`rotate(${angle} 50 50)`}
+          />
+        );
+      })}
+    </g>
+
+    {/* Inner Black Circular Base */}
+    <circle cx="50" cy="50" r="29" fill="#000000" stroke="#ffd700" strokeWidth="1.6" />
+
+    {/* Shield Outline with Clip */}
+    <g clipPath="url(#crestShieldClip)">
+      {/* Background of shield */}
+      <rect x="31" y="28" width="38" height="44" fill="#ffffff" />
+
+      {/* Top Left Quadrant: Red Cross on Gold */}
+      <rect x="31" y="28" width="19" height="17" fill="#facc15" />
+      <path d="M40.5 30 V43 M33.5 35.5 H47.5" stroke="#dc2626" strokeWidth="3" strokeLinecap="square" />
+
+      {/* Top Right Quadrant: Checkered Damero (Policía) */}
+      <g>
+        <rect x="50" y="28" width="19" height="17" fill="#ffffff" />
+        <rect x="50" y="28" width="4.75" height="4.25" fill="#1e40af" />
+        <rect x="59.5" y="28" width="4.75" height="4.25" fill="#1e40af" />
+        <rect x="54.75" y="32.25" width="4.75" height="4.25" fill="#1e40af" />
+        <rect x="64.25" y="32.25" width="4.75" height="4.25" fill="#1e40af" />
+        <rect x="50" y="36.5" width="4.75" height="4.25" fill="#1e40af" />
+        <rect x="59.5" y="36.5" width="4.75" height="4.25" fill="#1e40af" />
+        <rect x="54.75" y="40.75" width="4.75" height="4.25" fill="#1e40af" />
+        <rect x="64.25" y="40.75" width="4.75" height="4.25" fill="#1e40af" />
+      </g>
+
+      {/* Bottom Half of Shield: White Ground with Argentinian Sun & Ribbon */}
+      <rect x="31" y="45" width="38" height="27" fill="#f8fafc" />
+      <circle cx="50" cy="53" r="4.5" fill="#facc15" stroke="#ca8a04" strokeWidth="0.8" />
+      <path d="M37 63 Q50 67 63 63" stroke="#facc15" strokeWidth="2.5" fill="none" />
+      <path d="M40 60 L36 67 M60 60 L64 67" stroke="#eab308" strokeWidth="1.5" />
+    </g>
+
+    {/* Shield Border */}
+    <path
+      d="M31 28 H69 V50 C69 61 50 71 50 71 C50 71 31 61 31 50 Z"
+      fill="none"
+      stroke="#1e293b"
+      strokeWidth="1.8"
+    />
+
+    <defs>
+      <clipPath id="crestShieldClip">
+        <path d="M31 28 H69 V50 C69 61 50 71 50 71 C50 71 31 61 31 50 Z" />
+      </clipPath>
+    </defs>
+  </svg>
+);
 
 export const InstagramProfileAnalyzer: React.FC = () => {
   const [data, setData] = useState(INSTAGRAM_PROFILE_AUDIT);
@@ -33,13 +103,13 @@ export const InstagramProfileAnalyzer: React.FC = () => {
   const handleCopySummary = () => {
     const summary = `🛡️ INFORME INSTAGRAM PROFILE ANALYZER - POLICÍA TIERRA DEL FUEGO (@policiaprovincialtdf)
 URL: ${data.url}
-• Seguidores: ${data.followersCount.toLocaleString('es-AR')} (+${data.growth.monthlyGrowthRate}% mensual)
-• Calidad de Audiencia: ${data.qualityScore}/100 (Grado ${data.qualityGrade} - Riesgo Bots: ${data.audience.suspiciousBots.pct}% Muy Bajo)
-• Personas Reales & Activas: ${data.audience.realPeople.pct}% (${data.audience.realPeople.count.toLocaleString('es-AR')})
-• Tasa de Engagement (ER): ${data.engagementRate}% (Benchmark sector público: ${data.benchmarkEr}%)
-• Sentimiento Comunitario: ${data.sentiment.overall.positive}% Positivo | ${data.sentiment.overall.neutral}% Neutral | ${data.sentiment.overall.negative}% Negativo
-• Demografía Principal: 44.2% Río Grande · 38.6% Ushuaia · 8.4% Tolhuin (53% Mujeres / 47% Hombres)
-• Formato más efectivo: Reels (11.8% ER · 24.500 vistas promedio)`;
+• Seguidores: ${data.followersDisplay || '10.8k'}
+• Siguiendo: ${data.followingCount}
+• Publicaciones: ${data.postsCount}
+• Tasa de Participación: ${data.participationRate || '1,7%'} (${data.participationRateDelta || '-40% respecto al mes pasado'})
+• Me Gusta Promedio: ${data.avgLikesVal || '183,6'} (${data.avgLikesDelta || '-39,9% respecto al mes pasado'})
+• Comentarios Promedio: ${data.avgCommentsVal || '3.2'} (${data.avgCommentsDelta || '-48,2% respecto al mes pasado'})
+• Alcance Promedio: ${data.avgReachVal || '8287.4'} (${data.avgReachDelta || '+0% respecto al mes pasado'})`;
 
     navigator.clipboard.writeText(summary);
     setCopySuccess(true);
@@ -54,246 +124,440 @@ URL: ${data.url}
 
   return (
     <div style={{ marginBottom: 32 }}>
-      {/* ── TOP BANNER: ACCOUNT PROFILE HEADER ── */}
+      {/* ── TOP UTILITY TOOLBAR ── */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+        <button
+          onClick={handleLiveRefresh}
+          disabled={isRefreshing}
+          className="btn-ghost"
+          style={{
+            fontSize: '0.74rem',
+            gap: 6,
+            borderColor: refreshSuccess ? '#00e575' : undefined,
+            color: refreshSuccess ? '#00e575' : undefined
+          }}
+        >
+          <span style={{ display: 'inline-block', animation: isRefreshing ? 'spin 1s linear infinite' : 'none' }}>
+            🔄
+          </span>
+          <span>{isRefreshing ? 'Consultando API...' : refreshSuccess ? '✓ Datos actualizados' : 'Re-analizar en vivo'}</span>
+        </button>
+
+        <button
+          onClick={handleCopySummary}
+          className="btn-ghost"
+          style={{ fontSize: '0.74rem', gap: 6 }}
+        >
+          <span>{copySuccess ? '✓ Copiado' : '📋'}</span>
+          <span>{copySuccess ? 'Copiado al portapapeles' : 'Copiar Resumen'}</span>
+        </button>
+
+        <button
+          onClick={() => setExportModalOpen(true)}
+          className="btn-neon"
+          style={{ fontSize: '0.74rem', gap: 6 }}
+        >
+          <IconDownload />
+          <span>Exportar Informe</span>
+        </button>
+      </div>
+
+      {/* ── TOP BANNER: EXACT INSTASHADOW HEADER ── */}
       <div
-        className="card"
         style={{
-          padding: '24px 28px',
+          background: '#0d0f12',
+          border: '1px solid #1c212a',
+          borderRadius: 20,
+          padding: '28px 32px',
           marginBottom: 24,
           position: 'relative',
-          overflow: 'hidden',
-          background: 'linear-gradient(135deg, rgba(20, 30, 61, 0.95) 0%, rgba(15, 26, 53, 0.98) 100%)',
-          border: '1px solid var(--border-neon)',
-          boxShadow: '0 12px 40px rgba(0,0,0,0.45)'
+          boxShadow: '0 16px 40px rgba(0, 0, 0, 0.65)'
         }}
       >
-        {/* Subtle Instagram Gradient Line at top */}
+        {/* Top Profile Info Row */}
         <div
           style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 4,
-            background: 'linear-gradient(90deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)'
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            gap: 20,
+            marginBottom: 36
           }}
-        />
-
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: 20 }}>
-          {/* Left: Avatar + Identification */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-            {/* Avatar with dynamic Story Ring */}
+        >
+          {/* Left: Avatar Crest + Titles */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
             <div
               style={{
-                position: 'relative',
                 width: 78,
                 height: 78,
                 borderRadius: '50%',
-                padding: 3,
-                background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
-                boxShadow: '0 0 20px rgba(225, 48, 108, 0.35)'
+                background: '#000000',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden',
+                flexShrink: 0,
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.7)'
               }}
             >
-              <div
+              <img
+                src={avatarInstagram}
+                alt="Policía de Tierra del Fuego (@policiaprovincialtdf)"
                 style={{
                   width: '100%',
                   height: '100%',
-                  borderRadius: '50%',
-                  background: 'var(--bg-app)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  overflow: 'hidden',
-                  padding: 2
+                  objectFit: 'cover',
+                  display: 'block'
                 }}
-              >
-                <img
-                  src={data.avatarUrl}
-                  alt={data.displayName}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
-                />
-              </div>
-              <span
-                title="Cuenta Oficial Verificada"
-                style={{
-                  position: 'absolute',
-                  bottom: 2,
-                  right: 2,
-                  background: '#0078d4',
-                  color: '#fff',
-                  width: 22,
-                  height: 22,
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '0.72rem',
-                  border: '2px solid var(--bg-card)'
-                }}
-              >
-                ✓
-              </span>
+              />
             </div>
-
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-                <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.45rem', fontWeight: 900, color: 'var(--text-primary)', margin: 0 }}>
-                  {data.displayName}
-                </h1>
-                <span
-                  style={{
-                    background: 'rgba(255, 208, 0, 0.12)',
-                    border: '1px solid var(--border-neon)',
-                    color: 'var(--neon)',
-                    fontSize: '0.72rem',
-                    fontWeight: 700,
-                    padding: '3px 10px',
-                    borderRadius: 9999,
-                    letterSpacing: '0.04em'
-                  }}
-                >
-                  INSTAGRAM PROFILE ANALYZER
-                </span>
+              <h1
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '1.45rem',
+                  fontWeight: 800,
+                  color: '#ffffff',
+                  margin: 0,
+                  letterSpacing: '-0.01em'
+                }}
+              >
+                {data.handle}
+              </h1>
+              <div
+                style={{
+                  fontSize: '0.92rem',
+                  fontWeight: 600,
+                  color: '#ffffff',
+                  marginTop: 4
+                }}
+              >
+                {data.displayName}
               </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 4, flexWrap: 'wrap' }}>
-                <a
-                  href={data.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    color: '#e1306c',
-                    fontFamily: 'monospace',
-                    fontWeight: 700,
-                    fontSize: '0.9rem',
-                    textDecoration: 'none',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 4
-                  }}
-                >
-                  {data.handle}
-                  <IconExternalLink />
-                </a>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>•</span>
-                <span style={{ color: 'var(--text-secondary)', fontSize: '0.75rem' }}>
-                  🏛️ Organización Gubernamental & Seguridad Pública · TDF, Antártida e IAS
-                </span>
-              </div>
-
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', marginTop: 6, maxWidth: 640, lineHeight: 1.45 }}>
-                {data.bio}
-              </p>
             </div>
           </div>
 
-          {/* Right: Actions */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-            <button
-              onClick={handleLiveRefresh}
-              disabled={isRefreshing}
-              className="btn-ghost"
+          {/* Right: Slogan + External Link */}
+          <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 8 }}>
+            <div
               style={{
                 fontSize: '0.74rem',
-                gap: 6,
-                borderColor: refreshSuccess ? 'var(--success)' : undefined,
-                color: refreshSuccess ? 'var(--success)' : undefined
+                color: '#8a94a6',
+                fontStyle: 'normal',
+                maxWidth: 580,
+                lineHeight: 1.4
               }}
             >
-              <span style={{ display: 'inline-block', animation: isRefreshing ? 'spin 1s linear infinite' : 'none' }}>
-                🔄
-              </span>
-              <span>{isRefreshing ? 'Consultando API...' : refreshSuccess ? '✓ Datos actualizados' : 'Re-analizar en vivo'}</span>
-            </button>
+              {data.slogan || '"2026 - 20° Aniversario de la Sanción de la Ley Nacional N° 26.206 de Educación Pública Nacional"'}
+            </div>
 
-            <button
-              onClick={handleCopySummary}
-              className="btn-ghost"
-              style={{ fontSize: '0.74rem', gap: 6 }}
+            <a
+              href={data.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 7,
+                color: '#00e575',
+                fontSize: '0.84rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                transition: 'opacity 0.15s ease'
+              }}
+              onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+              onMouseLeave={e => (e.currentTarget.style.textDecoration = 'none')}
             >
-              <span>{copySuccess ? '✓ Copiado' : '📋'}</span>
-              <span>{copySuccess ? 'Copiado al portapapeles' : 'Copiar Resumen OCI'}</span>
-            </button>
-
-            <button
-              onClick={() => setExportModalOpen(true)}
-              className="btn-neon"
-              style={{ fontSize: '0.74rem', gap: 6 }}
-            >
-              <IconDownload />
-              <span>Exportar Informe</span>
-            </button>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00e575" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              <span>{data.displayUrl || 'www.instagram.com/policiaprovincialtdf'}</span>
+            </a>
           </div>
         </div>
 
-        {/* ── KEY METRIC PILLS STRIP ── */}
+        {/* Middle Stats: 3 Big Columns */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-            gap: 14,
-            marginTop: 22,
-            paddingTop: 18,
-            borderTop: '1px solid var(--border-subtle)'
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: 20,
+            textAlign: 'center',
+            marginBottom: 36
           }}
         >
-          <div style={{ background: 'rgba(255,255,255,0.03)', padding: '10px 14px', borderRadius: 12, border: '1px solid var(--border-subtle)' }}>
-            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 600 }}>Seguidores Totales</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--text-primary)', fontFamily: 'var(--font-heading)' }}>
-              {data.followersCount.toLocaleString('es-AR')}
+          <div>
+            <div
+              style={{
+                fontSize: '2.1rem',
+                fontWeight: 900,
+                color: '#00e575',
+                fontFamily: 'var(--font-heading)',
+                lineHeight: 1.1
+              }}
+            >
+              {data.followersDisplay || '10.8k'}
             </div>
-            <div style={{ fontSize: '0.66rem', color: 'var(--success)', fontWeight: 700 }}>
-              +{data.growth.monthlyGrowthRate}% este mes
+            <div
+              style={{
+                fontSize: '0.68rem',
+                fontWeight: 800,
+                color: '#8a94a6',
+                letterSpacing: '0.06em',
+                marginTop: 6,
+                textTransform: 'uppercase'
+              }}
+            >
+              SEGUIDORES
             </div>
           </div>
 
-          <div style={{ background: 'rgba(255,255,255,0.03)', padding: '10px 14px', borderRadius: 12, border: '1px solid var(--border-subtle)' }}>
-            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 600 }}>Cuentas Seguidas</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--text-primary)', fontFamily: 'var(--font-heading)' }}>
+          <div>
+            <div
+              style={{
+                fontSize: '2.1rem',
+                fontWeight: 900,
+                color: '#00e575',
+                fontFamily: 'var(--font-heading)',
+                lineHeight: 1.1
+              }}
+            >
               {data.followingCount}
             </div>
-            <div style={{ fontSize: '0.66rem', color: 'var(--text-muted)' }}>
-              Ratio: {data.ratio}:1 (Excelente)
+            <div
+              style={{
+                fontSize: '0.68rem',
+                fontWeight: 800,
+                color: '#8a94a6',
+                letterSpacing: '0.06em',
+                marginTop: 6,
+                textTransform: 'uppercase'
+              }}
+            >
+              SIGUIENTE
             </div>
           </div>
 
-          <div style={{ background: 'rgba(255,255,255,0.03)', padding: '10px 14px', borderRadius: 12, border: '1px solid var(--border-subtle)' }}>
-            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 600 }}>Publicaciones</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--text-primary)', fontFamily: 'var(--font-heading)' }}>
+          <div>
+            <div
+              style={{
+                fontSize: '2.1rem',
+                fontWeight: 900,
+                color: '#00e575',
+                fontFamily: 'var(--font-heading)',
+                lineHeight: 1.1
+              }}
+            >
               {data.postsCount}
             </div>
-            <div style={{ fontSize: '0.66rem', color: 'var(--accent-cyan)' }}>
-              54 posts en el último mes
+            <div
+              style={{
+                fontSize: '0.68rem',
+                fontWeight: 800,
+                color: '#8a94a6',
+                letterSpacing: '0.06em',
+                marginTop: 6,
+                textTransform: 'uppercase'
+              }}
+            >
+              PUBLICACIONES
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Row: 4 Metric Cards */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: 14
+          }}
+        >
+          {/* Card 1: Tasa de participación */}
+          <div
+            style={{
+              background: '#13161c',
+              border: '1px solid #1f242d',
+              borderRadius: 14,
+              padding: '16px 20px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between'
+            }}
+          >
+            <div
+              style={{
+                fontSize: '1.45rem',
+                fontWeight: 900,
+                color: '#00e575',
+                fontFamily: 'var(--font-heading)',
+                lineHeight: 1.1
+              }}
+            >
+              {data.participationRate || '1,7%'}
+            </div>
+            <div
+              style={{
+                fontSize: '0.72rem',
+                fontWeight: 800,
+                color: '#ffffff',
+                textTransform: 'uppercase',
+                letterSpacing: '0.04em',
+                margin: '6px 0 4px'
+              }}
+            >
+              TASA DE PARTICIPACIÓN
+            </div>
+            <div
+              style={{
+                fontSize: '0.66rem',
+                fontWeight: 600,
+                color: '#00e575'
+              }}
+            >
+              {data.participationRateDelta || '-40% respecto al mes pasado'}
             </div>
           </div>
 
-          <div style={{ background: 'rgba(255,255,255,0.03)', padding: '10px 14px', borderRadius: 12, border: '1px solid var(--border-neon)' }}>
-            <div style={{ fontSize: '0.68rem', color: 'var(--neon)', fontWeight: 700 }}>Engagement Rate (ER)</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--neon)', fontFamily: 'var(--font-heading)' }}>
-              {data.engagementRate}%
+          {/* Card 2: Me gusta promedio */}
+          <div
+            style={{
+              background: '#13161c',
+              border: '1px solid #1f242d',
+              borderRadius: 14,
+              padding: '16px 20px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between'
+            }}
+          >
+            <div
+              style={{
+                fontSize: '1.45rem',
+                fontWeight: 900,
+                color: '#00e575',
+                fontFamily: 'var(--font-heading)',
+                lineHeight: 1.1
+              }}
+            >
+              {data.avgLikesVal || '183,6'}
             </div>
-            <div style={{ fontSize: '0.66rem', color: 'var(--text-muted)' }}>
-              vs. benchmark 2.1% (+305%)
+            <div
+              style={{
+                fontSize: '0.72rem',
+                fontWeight: 800,
+                color: '#ffffff',
+                textTransform: 'uppercase',
+                letterSpacing: '0.04em',
+                margin: '6px 0 4px'
+              }}
+            >
+              ME GUSTA PROMEDIO
+            </div>
+            <div
+              style={{
+                fontSize: '0.66rem',
+                fontWeight: 600,
+                color: '#00e575'
+              }}
+            >
+              {data.avgLikesDelta || '-39,9% respecto al mes pasado'}
             </div>
           </div>
 
-          <div style={{ background: 'rgba(255,255,255,0.03)', padding: '10px 14px', borderRadius: 12, border: '1px solid rgba(16, 185, 129, 0.35)' }}>
-            <div style={{ fontSize: '0.68rem', color: 'var(--success)', fontWeight: 700 }}>Quality Score (FQS)</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--success)', fontFamily: 'var(--font-heading)' }}>
-              {data.qualityScore} <span style={{ fontSize: '0.85rem' }}>/ 100</span>
+          {/* Card 3: Comentarios promedio */}
+          <div
+            style={{
+              background: '#13161c',
+              border: '1px solid #1f242d',
+              borderRadius: 14,
+              padding: '16px 20px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between'
+            }}
+          >
+            <div
+              style={{
+                fontSize: '1.45rem',
+                fontWeight: 900,
+                color: '#00e575',
+                fontFamily: 'var(--font-heading)',
+                lineHeight: 1.1
+              }}
+            >
+              {data.avgCommentsVal || '3.2'}
             </div>
-            <div style={{ fontSize: '0.66rem', color: 'var(--success)', fontWeight: 700 }}>
-              Grado {data.qualityGrade} · Riesgo Fake Bajo
+            <div
+              style={{
+                fontSize: '0.72rem',
+                fontWeight: 800,
+                color: '#ffffff',
+                textTransform: 'uppercase',
+                letterSpacing: '0.04em',
+                margin: '6px 0 4px'
+              }}
+            >
+              COMENTARIOS PROMEDIO
+            </div>
+            <div
+              style={{
+                fontSize: '0.66rem',
+                fontWeight: 600,
+                color: '#00e575'
+              }}
+            >
+              {data.avgCommentsDelta || '-48,2% respecto al mes pasado'}
             </div>
           </div>
 
-          <div style={{ background: 'rgba(255,255,255,0.03)', padding: '10px 14px', borderRadius: 12, border: '1px solid var(--border-subtle)' }}>
-            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 600 }}>Sentimiento Positivo</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 900, color: '#38bdf8', fontFamily: 'var(--font-heading)' }}>
-              {data.sentiment.overall.positive}%
+          {/* Card 4: Alcance promedio */}
+          <div
+            style={{
+              background: '#13161c',
+              border: '1px solid #1f242d',
+              borderRadius: 14,
+              padding: '16px 20px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between'
+            }}
+          >
+            <div
+              style={{
+                fontSize: '1.45rem',
+                fontWeight: 900,
+                color: '#00e575',
+                fontFamily: 'var(--font-heading)',
+                lineHeight: 1.1
+              }}
+            >
+              {data.avgReachVal || '8287.4'}
             </div>
-            <div style={{ fontSize: '0.66rem', color: 'var(--text-muted)' }}>
-              Score NLP: {data.sentiment.sentimentScore}/100
+            <div
+              style={{
+                fontSize: '0.72rem',
+                fontWeight: 800,
+                color: '#ffffff',
+                textTransform: 'uppercase',
+                letterSpacing: '0.04em',
+                margin: '6px 0 4px'
+              }}
+            >
+              ALCANCE PROMEDIO
+            </div>
+            <div
+              style={{
+                fontSize: '0.66rem',
+                fontWeight: 600,
+                color: '#00e575'
+              }}
+            >
+              {data.avgReachDelta || '+0% respecto al mes pasado'}
             </div>
           </div>
         </div>
