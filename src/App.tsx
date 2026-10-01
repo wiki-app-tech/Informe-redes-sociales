@@ -50,42 +50,43 @@ import { ReportGeneratorWizard } from './components/ReportGeneratorWizard';
 import { BestTimeOptimizer } from './components/BestTimeOptimizer';
 import { HashtagTracker } from './components/HashtagTracker';
 import { InstagramLinkManager } from './components/InstagramLinkManager';
+import { EstadisticasResumen } from './components/EstadisticasResumen';
 
 const TAB_TITLES: Record<TabId, { title: string; sub: string }> = {
-  // Enterprise 360 Suite
-  'instagram-analyzer':     { title: 'Instagram Profile Analyzer — @policiaprovincialtdf', sub: 'Deep insights into audience, demographics, fake followers, sentiment, growth & engagement' },
-  'realtime-ga4':           { title: 'Monitoreo en Tiempo Real (GA4 API Direct / MCP)', sub: 'Métricas activas en vivo, mapa de calor de páginas y log de eventos' },
-  'multiplatform-analytics': { title: 'Analytics Multi-Plataforma Unificado', sub: 'Matriz consolidada para Instagram, TikTok, Facebook, X, LinkedIn, YT y Ads' },
-  'report-wizard':          { title: 'Generador de Informes Automáticos (Wizard)', sub: 'Wizard de 3 pasos para PDF/Excel con Insights automáticos por IA Agent' },
+  // Suite Avanzada 360
+  'instagram-analyzer':     { title: 'Analizador de Perfil de Instagram — @policiaprovincialtdf', sub: 'Análisis profundo de audiencia, demografía, seguidores falsos, sentimiento, crecimiento e interacción' },
+  'realtime-ga4':           { title: 'Monitoreo en Tiempo Real (API GA4 Directa / MCP)', sub: 'Métricas activas en vivo, mapa de calor de páginas y registro de eventos' },
+  'multiplatform-analytics': { title: 'Estadísticas Multiplataforma — Resumen', sub: 'Todo el contenido, visualizaciones, seguidores netos, interacciones y destacados' },
+  'report-wizard':          { title: 'Generador de Informes Automáticos (Asistente IA)', sub: 'Asistente de 3 pasos para PDF/Excel con conclusiones automáticas por Agente IA' },
   'time-optimizer':         { title: 'Optimizador de Horarios de Publicación', sub: 'Mapa de calor 24/7 y recomendaciones automáticas de mejores momentos para publicar' },
-  'hashtag-tracker':        { title: 'Tracker y Monitor de Hashtags', sub: 'Seguimiento de volumen, alcance y alertas de tendencia en X e Instagram' },
-  'instagram-link-manager':  { title: 'Instagram Linkable Images & Bio Hub', sub: 'Generador de landing pages para posts de Instagram y análisis de clicks' },
+  'hashtag-tracker':        { title: 'Seguimiento y Monitor de Etiquetas', sub: 'Seguimiento de volumen, alcance y alertas de tendencia en X e Instagram' },
+  'instagram-link-manager':  { title: 'Imágenes con Enlace y Centro de Enlaces de Instagram', sub: 'Generador de páginas de destino para publicaciones de Instagram y análisis de clics' },
 
-  // Core
-  overview:                { title: 'Vista General & KPIs', sub: 'Métricas clave de comunicación digital institucional' },
-  feed:                    { title: 'Feed de Publicaciones', sub: 'Monitor en tiempo real — Facebook, Instagram y Portal Oficial' },
-  directory:               { title: 'Comisarías & Emergencias 101', sub: 'Directorio institucional con contactos directos en Ushuaia, Río Grande y Tolhuin' },
+  // Principal
+  overview:                { title: 'Vista General y Métricas', sub: 'Métricas clave de comunicación digital institucional' },
+  feed:                    { title: 'Muro de Publicaciones', sub: 'Monitor en tiempo real — Facebook, Instagram y Portal Oficial' },
+  directory:               { title: 'Comisarías y Emergencias 101', sub: 'Directorio institucional con contactos directos en Ushuaia, Río Grande y Tolhuin' },
 
-  // Reporting
+  // Informes y Reportes
   'informe-institucional': { title: 'Informe Institucional Consolidado (PDF)', sub: 'Reporte oficial estilo Metricool Studio firmado por las OCI Río Grande y Ushuaia' },
-  'dashboard-plataforma':  { title: 'Dashboard por Plataforma', sub: 'Desglose analítico individual para Facebook, Instagram, YouTube, X y Web' },
-  'ranking-posts':         { title: 'Ranking de Publicaciones', sub: 'Top de contenidos con mayor alcance, impresiones e interacción' },
-  'monitor-hashtags':      { title: 'Monitor de Hashtags (#PolicíaTDF)', sub: 'Seguimiento del hashtag oficial y temas de mayor rendimiento' },
+  'dashboard-plataforma':  { title: 'Panel por Plataforma', sub: 'Desglose analítico individual para Facebook, Instagram, YouTube, X y Web' },
+  'ranking-posts':         { title: 'Clasificación de Publicaciones', sub: 'Top de contenidos con mayor alcance, impresiones e interacción' },
+  'monitor-hashtags':      { title: 'Monitor de Etiqueta (#PolicíaTDF)', sub: 'Seguimiento de la etiqueta oficial y temas de mayor rendimiento' },
 
   // Planificacion y Ejecucion
   planificador:            { title: 'Planificador de Contenidos', sub: 'Calendario editorial con foco estratégico en Historias y Reels' },
   aprobacion:              { title: 'Sistema de Aprobación OCI', sub: 'Flujo de revisión: Borrador → Revisión por Comisario Inspector Gómez / Comisario Peralta → Aprobado' },
   'asistente-ia':          { title: 'Asistente IA para Comunicados', sub: 'Generador de textos oficiales para Alertas Viales, Rescates y Prevención' },
-  'alertas-reels':         { title: 'Workflow Historias & Reels', sub: 'Estrategia y formatos de micro-video de mayor respuesta ciudadana' },
+  'alertas-reels':         { title: 'Gestión de Historias y Reels', sub: 'Estrategia y formatos de microvideo de mayor respuesta ciudadana' },
 
   // Analitica y Crecimiento
-  analytics:               { title: 'Gráficos & Demografía', sub: 'Evolución semestral y distribución de audiencia en Tierra del Fuego' },
+  analytics:               { title: 'Estadísticas de Redes Sociales — Resumen Oficial', sub: 'Todo el contenido, visualizaciones, seguidores netos, interacciones y destacados' },
   'best-times':            { title: 'Mejor Hora para Publicar', sub: 'Mapas de calor de audiencia por plataforma — Datos del estudio Metricool 2026' },
-  comparativa:             { title: 'Comparativa de Competencias (Benchmarking)', sub: 'Evaluación vs. Policía de Córdoba, Policía de la Ciudad (CABA) y Policía Nacional de España' },
+  comparativa:             { title: 'Comparativa Institucional (Benchmarking)', sub: 'Evaluación vs. Policía de Córdoba, Policía de la Ciudad (CABA) y Policía Nacional de España' },
   integraciones:           { title: 'Integraciones & APIs', sub: 'Estado de conexión con Meta API, Beacons.ai, Web RSS y servicios digitales' },
 
-  // Hub & Recomendaciones
-  beacons:                 { title: 'Beacons.ai — Hub de Links', sub: 'Análisis de conversión y tráfico del directorio @policiatdf' },
+  // Centro de Enlaces y Recomendaciones
+  beacons:                 { title: 'Beacons.ai — Centro de Enlaces', sub: 'Análisis de conversión y tráfico del directorio @policiatdf' },
   recommendations:         { title: 'Recomendaciones OCI', sub: 'Plan de optimización estratégica para la Oficina de Comunicación Institucional' },
 };
 
@@ -117,10 +118,11 @@ const App: React.FC = () => {
 
   // Quick sub-navigation tabs for Overview page (MSN Weather Horizontal Strip style)
   const overviewQuickTabs: { id: TabId; label: string; icon: string }[] = [
-    { id: 'instagram-analyzer', label: 'Instagram Profile Analyzer', icon: '📸' },
+    { id: 'instagram-analyzer', label: 'Analizador de Instagram', icon: '📸' },
+    { id: 'analytics', label: 'Estadísticas (Resumen)', icon: '📊' },
     { id: 'overview', label: 'Información General', icon: '⭐' },
-    { id: 'realtime-ga4', label: 'GA4 Realtime', icon: '⚡' },
-    { id: 'feed', label: 'Feed Social', icon: '📰' },
+    { id: 'realtime-ga4', label: 'GA4 en Tiempo Real', icon: '⚡' },
+    { id: 'feed', label: 'Muro Social', icon: '📰' },
     { id: 'directory', label: 'Comisarías 101', icon: '🏢' },
     { id: 'report-wizard', label: 'Informes IA', icon: '📄' },
     { id: 'planificador', label: 'Planificador', icon: '📅' },
@@ -253,7 +255,7 @@ const App: React.FC = () => {
           )}
 
           {activeTab === 'multiplatform-analytics' && (
-            <MultiplatformAnalytics />
+            <EstadisticasResumen />
           )}
 
           {activeTab === 'report-wizard' && (
@@ -308,11 +310,7 @@ const App: React.FC = () => {
 
           {/* ── CATEGORÍA 3: ANALÍTICA Y CRECIMIENTO ── */}
           {activeTab === 'analytics' && (
-            <AnalyticsCharts
-              trends={MONTHLY_TRENDS}
-              categories={CATEGORY_BREAKDOWN}
-              locations={LOCATION_DISTRIBUTION}
-            />
+            <EstadisticasResumen />
           )}
 
           {activeTab === 'best-times' && (

@@ -576,11 +576,11 @@ URL: ${data.url}
       >
         <div style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 4 }} className="scrollbar-hide">
           {[
-            { id: 'audience', label: '🛡️ Calidad & Fake Followers' },
+            { id: 'audience', label: '🛡️ Calidad y Seguidores Falsos' },
             { id: 'demographics', label: '👥 Demografía & Ciudades TDF' },
             { id: 'sentiment', label: '❤️ Sentimiento de Audiencia' },
             { id: 'growth', label: '📈 Crecimiento & Proyecciones' },
-            { id: 'engagement', label: '⚡ Engagement & Formatos' },
+            { id: 'engagement', label: '⚡ Interacción y Formatos' },
             { id: 'ai-audit', label: '🤖 Diagnóstico & Acciones IA' },
           ].map(tab => {
             const active = activeSubTab === tab.id;

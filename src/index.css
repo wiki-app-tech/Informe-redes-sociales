@@ -1,96 +1,110 @@
 /* ===================================================
-   POLICIA TDF - MSN WEATHER DARK STYLE DESIGN SYSTEM
-   Inspired by: MSN Microsoft Weather Dark Theme (Ushuaia)
-   Typography: Outfit (headings) + Inter (body)
+   POLICÍA DE TIERRA DEL FUEGO, ANTÁRTIDA E IAS
+   Identidad Oficial: https://policia.tierradelfuego.gob.ar/
+   Tipografía Oficial: Rubik (títulos/institucional) + Inter & Barlow (cuerpo)
+   Paleta Oficial: Azul Policial #114b72 / #1e73be / Dorado Sol #fcb900 / #ffd700
    =================================================== */
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap');
+/* Google Fonts Oficiales de policia.tierradelfuego.gob.ar */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap');
 
-/* === DESIGN TOKENS === */
+/* === DESIGN TOKENS OFICIALES POLICÍA TDF === */
 :root {
-  /* MSN Weather Midnight Blue Core */
-  --bg-app:        #0b1329;
-  --bg-sidebar:    #0f1a35;
-  --bg-card:       #141e3d;
-  --bg-card-hover: #1b2850;
-  --bg-input:      #121b37;
+  /* Identidad Institucional: Azul Policial TDF */
+  --policia-blue:          #114b72;
+  --policia-blue-hover:    #1e73be;
+  --policia-blue-dark:     #0c2538;
+  --policia-blue-darker:   #081a27;
+  --policia-blue-surface:  #0f324c;
+  --policia-blue-light:    #eaf2f8;
 
-  /* Borders */
-  --border-subtle: rgba(255,255,255,0.08);
-  --border-neon:   rgba(255,208,0,0.35);
-  --border-blue:   rgba(0,120,212,0.35);
-  --border-cyan:   rgba(0,200,206,0.35);
+  /* Escudo & Sol Oficial TDF: Oro y Amarillo Institucional */
+  --policia-gold:          #fcb900;
+  --policia-gold-bright:   #ffd700;
+  --policia-gold-dark:     #d49b00;
+  --policia-gold-bg:       rgba(252, 185, 0, 0.14);
 
-  /* Primary Accent: MSN Sun Yellow */
-  --neon:          #ffd000;
-  --neon-dark:     #e6bb00;
-  --neon-bg:       rgba(255,208,0,0.12);
-  --neon-glow:     0 0 24px rgba(255,208,0,0.30);
+  /* Fondos Institucionales Dark (Modo Oficial Operativo) */
+  --bg-app:        #081926;
+  --bg-sidebar:    #0a2234;
+  --bg-card:       #0d2e47;
+  --bg-card-hover: #114b72;
+  --bg-input:      #081c2b;
 
-  /* Electric Blue Accent */
-  --accent-blue:    #0078d4;
-  --accent-blue-bg: rgba(0,120,212,0.15);
+  /* Bordes */
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-neon:   rgba(252, 185, 0, 0.40);
+  --border-blue:   rgba(30, 115, 190, 0.45);
+  --border-policia: #114b72;
 
-  /* Cyan Turquoise Accent */
-  --accent-cyan:    #00c8ce;
-  --accent-cyan-bg: rgba(0,200,206,0.15);
+  /* Acento Primario: Sol Policial Dorado */
+  --neon:          #fcb900;
+  --neon-dark:     #d49b00;
+  --neon-bg:       rgba(252, 185, 0, 0.14);
+  --neon-glow:     0 0 24px rgba(252, 185, 0, 0.32);
 
-  /* Text Colors */
+  /* Azul Eléctrico e Informativo */
+  --accent-blue:    #114b72;
+  --accent-blue-bg: rgba(17, 75, 114, 0.25);
+  --accent-cyan:    #00a0d2;
+  --accent-cyan-bg: rgba(0, 160, 210, 0.15);
+
+  /* Colores de Texto */
   --text-primary:   #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted:     #64748b;
-  --text-neon:      #ffd000;
-  --text-on-neon:   #0b1329;
+  --text-secondary: #9cb3c5;
+  --text-muted:     #637d91;
+  --text-neon:      #fcb900;
+  --text-on-neon:   #081926;
 
-  /* Platform Colors */
+  /* Colores de Plataformas */
   --fb-blue:    #1877f2;
   --ig-grad1:   #e1306c;
   --ig-grad2:   #f56040;
   --yt-red:     #ff0000;
   --tw-sky:     #1da1f2;
-  --wa-green:   #25d366;
-  --bc-neon:    #ffd000;
+  --wa-green:   #1bb500;
+  --bc-neon:    #fcb900;
 
-  /* Status Colors */
-  --success:  #10b981;
-  --warning:  #ffd000;
-  --danger:   #ef4444;
-  --info:     #00c8ce;
+  /* Estados Institucionales de la Web */
+  --success:  #1bb500; /* Verde institucional de policia.tierradelfuego.gob.ar */
+  --warning:  #fcb900; /* Oro institucional */
+  --danger:   #cf2e2e; /* Rojo emergencias 101 y alertas viales */
+  --info:     #1e73be;
 
-  /* Typography */
-  --font-heading: 'Outfit', 'Inter', system-ui, sans-serif;
-  --font-body:    'Inter', system-ui, sans-serif;
+  /* Tipografías Oficiales de policia.tierradelfuego.gob.ar */
+  --font-heading: 'Rubik', sans-serif;
+  --font-body:    'Inter', 'Barlow', system-ui, -apple-system, sans-serif;
 
-  /* Shapes */
-  --radius-card: 20px;
+  /* Formas y Bordes */
+  --radius-card: 16px;
   --radius-pill: 9999px;
 
-  /* Shadows */
-  --shadow-card:     0 8px 32px rgba(0,0,0,0.45);
-  --shadow-glow:     0 0 32px rgba(255,208,0,0.20);
-  --shadow-neon-btn: 0 4px 16px rgba(255,208,0,0.35);
+  /* Sombras Institucionales */
+  --shadow-card:     0 8px 30px rgba(0, 0, 0, 0.50);
+  --shadow-glow:     0 0 32px rgba(252, 185, 0, 0.22);
+  --shadow-neon-btn: 0 4px 16px rgba(252, 185, 0, 0.35);
 }
 
-/* === LIGHT MODE === */
+/* === LIGHT MODE (Portal Web policia.tierradelfuego.gob.ar) === */
 .light-mode {
-  --bg-app:        #f1f5f9;
+  --bg-app:        #f4f7fa;
   --bg-sidebar:    #ffffff;
   --bg-card:       #ffffff;
-  --bg-card-hover: #f8fafc;
-  --bg-input:      #e2e8f0;
-  --border-subtle: rgba(0,0,0,0.08);
-  --border-neon:   rgba(200,155,0,0.35);
-  --border-blue:   rgba(0,120,212,0.3);
-  --text-primary:  #0f172a;
-  --text-secondary:#475569;
-  --text-muted:    #94a3b8;
-  --neon:          #d97706;
-  --neon-dark:     #b45309;
-  --neon-bg:       rgba(217,119,6,0.10);
-  --text-neon:     #d97706;
+  --bg-card-hover: #eef4f8;
+  --bg-input:      #e4ecf2;
+  --border-subtle: rgba(17, 75, 114, 0.12);
+  --border-neon:   rgba(17, 75, 114, 0.40);
+  --border-blue:   rgba(17, 75, 114, 0.30);
+  --border-policia: #114b72;
+  --text-primary:  #0e324c;
+  --text-secondary:#3a596e;
+  --text-muted:    #6c899c;
+  --neon:          #114b72;
+  --neon-dark:     #0b324d;
+  --neon-bg:       rgba(17, 75, 114, 0.10);
+  --text-neon:     #114b72;
   --text-on-neon:  #ffffff;
-  --shadow-card:   0 4px 20px rgba(0,0,0,0.07);
+  --shadow-card:   0 4px 20px rgba(17, 75, 114, 0.08);
 }
 
 /* === RESET & BASE === */
@@ -133,8 +147,8 @@ img { max-width: 100%; display: block; }
 
 /* === SIDEBAR === */
 .sidebar {
-  width: 250px;
-  min-width: 250px;
+  width: 260px;
+  min-width: 260px;
   background: var(--bg-sidebar);
   border-right: 1px solid var(--border-subtle);
   display: flex;
@@ -159,12 +173,13 @@ img { max-width: 100%; display: block; }
   width: 38px;
   height: 38px;
   background: var(--neon);
+  color: var(--text-on-neon);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(255,208,0,0.35);
+  box-shadow: 0 4px 16px rgba(252, 185, 0, 0.35);
 }
 .sidebar-logo-text {
   font-family: var(--font-heading);
@@ -190,10 +205,10 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 14px;
+  padding: 8px 12px;
   border-radius: var(--radius-pill);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.77rem;
   font-weight: 600;
   color: var(--text-secondary);
   transition: all 0.18s ease;
@@ -201,7 +216,8 @@ img { max-width: 100%; display: block; }
   background: none;
   width: 100%;
   text-align: left;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.25;
 }
 .sidebar-nav-item:hover {
   background: var(--neon-bg);
@@ -211,7 +227,7 @@ img { max-width: 100%; display: block; }
   background: var(--neon);
   color: var(--text-on-neon);
   font-weight: 700;
-  box-shadow: 0 4px 16px rgba(255,208,0,0.30);
+  box-shadow: 0 4px 16px rgba(252, 185, 0, 0.30);
 }
 .sidebar-nav-item .nav-icon { width: 16px; height: 16px; flex-shrink: 0; }
 
@@ -239,7 +255,7 @@ img { max-width: 100%; display: block; }
 /* === MAIN CONTENT AREA === */
 .main-content {
   flex: 1;
-  margin-left: 250px;
+  margin-left: 260px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -250,7 +266,7 @@ img { max-width: 100%; display: block; }
   position: sticky;
   top: 0;
   z-index: 30;
-  background: rgba(11,19,41,0.90);
+  background: rgba(8, 25, 38, 0.94);
   border-bottom: 1px solid var(--border-subtle);
   padding: 0 28px;
   height: 64px;
@@ -276,7 +292,7 @@ img { max-width: 100%; display: block; }
 .card:hover {
   border-color: var(--border-neon);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-card), 0 0 18px rgba(255,208,0,0.12);
+  box-shadow: var(--shadow-card), 0 0 18px rgba(252, 185, 0, 0.14);
 }
 .card-neon { border-color: var(--border-neon) !important; }
 .card-neon:hover { box-shadow: var(--shadow-glow) !important; }
@@ -297,7 +313,7 @@ img { max-width: 100%; display: block; }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--neon) 0%, var(--accent-cyan) 100%);
+  background: linear-gradient(90deg, var(--neon) 0%, var(--policia-blue-hover) 100%);
 }
 .kpi-card:hover {
   border-color: var(--border-neon);
@@ -323,8 +339,8 @@ img { max-width: 100%; display: block; }
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--success);
-  background: rgba(16,185,129,0.15);
-  border: 1px solid rgba(16,185,129,0.3);
+  background: rgba(27, 181, 0, 0.15);
+  border: 1px solid rgba(27, 181, 0, 0.3);
   padding: 3px 10px;
   border-radius: var(--radius-pill);
 }
@@ -357,9 +373,9 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 .btn-neon:hover {
-  background: #ffe047;
+  background: #ffc933;
   transform: translateY(-1px);
-  box-shadow: 0 6px 22px rgba(255,208,0,0.50);
+  box-shadow: 0 6px 22px rgba(252, 185, 0, 0.45);
 }
 
 .btn-ghost {
@@ -384,7 +400,7 @@ img { max-width: 100%; display: block; }
 }
 
 .btn-blue {
-  background: var(--accent-blue);
+  background: var(--policia-blue);
   color: #ffffff;
   font-family: var(--font-heading);
   font-weight: 700;
@@ -397,18 +413,18 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 6px;
   transition: all 0.18s ease;
-  box-shadow: 0 4px 14px rgba(0,120,212,0.3);
+  box-shadow: 0 4px 14px rgba(17, 75, 114, 0.35);
 }
 .btn-blue:hover {
-  background: #106ebe;
+  background: var(--policia-blue-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0,120,212,0.50);
+  box-shadow: 0 6px 20px rgba(30, 115, 190, 0.50);
 }
 
 .btn-danger {
-  background: rgba(239,68,68,0.15);
-  color: #f87171;
-  border: 1px solid rgba(239,68,68,0.3);
+  background: rgba(207, 46, 46, 0.15);
+  color: #ff6b6b;
+  border: 1px solid rgba(207, 46, 46, 0.35);
   font-weight: 700;
   font-size: 0.8rem;
   padding: 9px 18px;
@@ -421,7 +437,7 @@ img { max-width: 100%; display: block; }
   animation: pulse-red 2s infinite;
 }
 .btn-danger:hover {
-  background: rgba(239,68,68,0.25);
+  background: rgba(207, 46, 46, 0.25);
   transform: scale(1.02);
 }
 
@@ -441,12 +457,12 @@ img { max-width: 100%; display: block; }
 .badge-fb      { background: rgba(24,119,242,0.15); color: #60a5fa; border: 1px solid rgba(24,119,242,0.3); }
 .badge-ig      { background: rgba(225,48,108,0.15); color: #f472b6; border: 1px solid rgba(225,48,108,0.3); }
 .badge-yt      { background: rgba(255,0,0,0.15); color: #f87171; border: 1px solid rgba(255,0,0,0.3); }
-.badge-wa      { background: rgba(37,211,102,0.15); color: #4ade80; border: 1px solid rgba(37,211,102,0.3); }
-.badge-bc      { background: rgba(255,208,0,0.15); color: #ffd000; border: 1px solid rgba(255,208,0,0.3); }
-.badge-info    { background: rgba(0,200,206,0.15); color: #00c8ce; border: 1px solid rgba(0,200,206,0.3); }
-.badge-warning { background: rgba(255,208,0,0.15); color: #ffd000; border: 1px solid rgba(255,208,0,0.3); }
-.badge-danger  { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
-.badge-success { background: rgba(16,185,129,0.15); color: #4ade80; border: 1px solid rgba(16,185,129,0.3); }
+.badge-wa      { background: rgba(27,181,0,0.15); color: #1bb500; border: 1px solid rgba(27,181,0,0.3); }
+.badge-bc      { background: rgba(252,185,0,0.15); color: #fcb900; border: 1px solid rgba(252,185,0,0.3); }
+.badge-info    { background: rgba(30,115,190,0.15); color: #1e73be; border: 1px solid rgba(30,115,190,0.3); }
+.badge-warning { background: rgba(252,185,0,0.15); color: #fcb900; border: 1px solid rgba(252,185,0,0.3); }
+.badge-danger  { background: rgba(207,46,46,0.15); color: #ff6b6b; border: 1px solid rgba(207,46,46,0.35); }
+.badge-success { background: rgba(27,181,0,0.15); color: #1bb500; border: 1px solid rgba(27,181,0,0.3); }
 
 /* === INPUTS === */
 .input-dark {
@@ -464,7 +480,7 @@ img { max-width: 100%; display: block; }
 .input-dark::placeholder { color: var(--text-muted); }
 .input-dark:focus {
   border-color: var(--neon);
-  box-shadow: 0 0 0 3px rgba(255,208,0,0.15);
+  box-shadow: 0 0 0 3px rgba(252,185,0,0.20);
 }
 
 /* === SECTION HEADINGS === */
@@ -508,9 +524,9 @@ img { max-width: 100%; display: block; }
 .platform-ig  { background: linear-gradient(135deg, rgba(225,48,108,0.2), rgba(245,96,64,0.2)); }
 .platform-yt  { background: rgba(255,0,0,0.18); }
 .platform-tw  { background: rgba(29,161,242,0.18); }
-.platform-wa  { background: rgba(37,211,102,0.18); }
-.platform-bc  { background: rgba(255,208,0,0.18); }
-.platform-web { background: rgba(0,200,206,0.18); }
+.platform-wa  { background: rgba(27,181,0,0.18); }
+.platform-bc  { background: rgba(252,185,0,0.18); }
+.platform-web { background: rgba(30,115,190,0.18); }
 
 /* === CHANNEL LIST ROW === */
 .channel-row {
@@ -562,8 +578,8 @@ img { max-width: 100%; display: block; }
   50%       { opacity: 1; }
 }
 @keyframes pulse-red {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0); }
-  50%       { box-shadow: 0 0 0 4px rgba(239,68,68,0.2); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(207,46,46,0); }
+  50%       { box-shadow: 0 0 0 4px rgba(207,46,46,0.25); }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 

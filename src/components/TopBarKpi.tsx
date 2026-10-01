@@ -154,14 +154,14 @@ export const TopBar: React.FC<TopBarProps> = ({
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
             padding: '4px 10px', borderRadius: 9999,
-            background: 'rgba(16,185,129,0.12)',
-            border: '1px solid rgba(16,185,129,0.25)',
-            color: '#10b981',
+            background: 'rgba(27,181,0,0.12)',
+            border: '1px solid rgba(27,181,0,0.3)',
+            color: 'var(--success)',
             fontSize: '0.68rem', fontWeight: 700
           }}>
             <span style={{
-              width: 7, height: 7, borderRadius: '50%', background: '#10b981',
-              boxShadow: '0 0 8px #10b981', animation: 'pulse-slow 2s infinite'
+              width: 7, height: 7, borderRadius: '50%', background: 'var(--success)',
+              boxShadow: '0 0 8px var(--success)', animation: 'pulse-slow 2s infinite'
             }} />
             GA4 API En Vivo
           </div>
@@ -169,8 +169,8 @@ export const TopBar: React.FC<TopBarProps> = ({
           {/* Emergency 101 badge */}
           <a href="tel:101" style={{
             display: 'inline-flex', alignItems: 'center', gap: 5, padding: '6px 14px',
-            borderRadius: 9999, background: 'rgba(239,68,68,0.15)', color: '#f87171',
-            border: '1px solid rgba(239,68,68,0.3)', fontSize: '0.72rem', fontWeight: 800,
+            borderRadius: 9999, background: 'rgba(207,46,46,0.18)', color: '#ff6b6b',
+            border: '1px solid rgba(207,46,46,0.4)', fontSize: '0.72rem', fontWeight: 800,
             letterSpacing: '0.04em', textDecoration: 'none', fontFamily: 'var(--font-heading)',
             animation: 'pulse-red 2s infinite'
           }}>
@@ -286,11 +286,11 @@ export const KpiCards: React.FC<KpiCardsProps> = ({ metrics }) => {
       {metrics.map((m, i) => (
         <div key={m.id} className="kpi-card anim-fadein" style={{ animationDelay: `${i * 60}ms` }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
-            {/* MSN-style yellow icon badge */}
+            {/* Police Sunburst Gold icon badge */}
             <div style={{
               padding: 8, borderRadius: 12,
-              background: 'rgba(255,208,0,0.12)',
-              border: '1px solid rgba(255,208,0,0.25)',
+              background: 'var(--neon-bg)',
+              border: '1px solid var(--border-neon)',
               color: 'var(--text-neon)'
             }}>
               {getKpiIcon(m.icon)}

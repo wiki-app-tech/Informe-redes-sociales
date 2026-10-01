@@ -72,32 +72,32 @@ export const Sidebar: React.FC<SidebarProps> = ({
     items: { id: TabId; label: string; icon: React.ReactNode }[];
   }[] = [
     {
-      title: '⚡ ENTERPRISE 360 SUITE',
+      title: '⚡ SUITE AVANZADA 360',
       items: [
-        { id: 'instagram-analyzer', label: 'Instagram Profile Analyzer', icon: <IconInstagram /> },
+        { id: 'instagram-analyzer', label: 'Analizador de Perfil de Instagram', icon: <IconInstagram /> },
         { id: 'realtime-ga4', label: 'Monitoreo en Tiempo Real', icon: <IconActivity /> },
-        { id: 'multiplatform-analytics', label: 'Analytics Multi-Plataforma', icon: <IconBarChart /> },
+        { id: 'multiplatform-analytics', label: 'Estadísticas Multiplataforma', icon: <IconBarChart /> },
         { id: 'report-wizard', label: 'Generador de Informes (IA)', icon: <IconAward /> },
         { id: 'time-optimizer', label: 'Optimizador de Horarios', icon: <IconClock /> },
-        { id: 'hashtag-tracker', label: 'Tracker de Hashtags', icon: <IconSearch /> },
-        { id: 'instagram-link-manager', label: 'Instagram Linkable Images', icon: <IconInstagram /> },
+        { id: 'hashtag-tracker', label: 'Seguimiento de Etiquetas', icon: <IconSearch /> },
+        { id: 'instagram-link-manager', label: 'Imágenes con Enlace (Instagram)', icon: <IconInstagram /> },
       ]
     },
     {
       title: 'PRINCIPAL',
       items: [
-        { id: 'overview', label: 'Vista General & KPIs', icon: <IconDashboard /> },
-        { id: 'feed', label: 'Feed de Publicaciones', icon: <IconFeed /> },
-        { id: 'directory', label: 'Comisarías & 101', icon: <IconDirectory /> },
+        { id: 'overview', label: 'Vista General y Métricas', icon: <IconDashboard /> },
+        { id: 'feed', label: 'Muro de Publicaciones', icon: <IconFeed /> },
+        { id: 'directory', label: 'Comisarías y Línea 101', icon: <IconDirectory /> },
       ]
     },
     {
-      title: '📊 REPORTING',
+      title: '📊 INFORMES Y REPORTES',
       items: [
         { id: 'informe-institucional', label: 'Informe Institucional (PDF)', icon: <IconAward /> },
-        { id: 'dashboard-plataforma', label: 'Dashboard por Plataforma', icon: <IconGlobe /> },
-        { id: 'ranking-posts', label: 'Ranking de Publicaciones', icon: <IconBarChart /> },
-        { id: 'monitor-hashtags', label: 'Monitor #PolicíaTDF', icon: <IconSearch /> },
+        { id: 'dashboard-plataforma', label: 'Panel por Plataforma', icon: <IconGlobe /> },
+        { id: 'ranking-posts', label: 'Clasificación de Publicaciones', icon: <IconBarChart /> },
+        { id: 'monitor-hashtags', label: 'Monitor de Etiqueta #PolicíaTDF', icon: <IconSearch /> },
       ]
     },
     {
@@ -105,23 +105,23 @@ export const Sidebar: React.FC<SidebarProps> = ({
       items: [
         { id: 'planificador', label: 'Planificador de Contenidos', icon: <IconClock /> },
         { id: 'aprobacion', label: 'Sistema de Aprobación OCI', icon: <IconShield /> },
-        { id: 'asistente-ia', label: 'Asistente IA Comunicados', icon: <IconTrendUp /> },
-        { id: 'alertas-reels', label: 'Historias & Reels Workflow', icon: <IconFeed /> },
+        { id: 'asistente-ia', label: 'Asistente IA para Comunicados', icon: <IconTrendUp /> },
+        { id: 'alertas-reels', label: 'Gestión de Historias y Reels', icon: <IconFeed /> },
       ]
     },
     {
       title: '📈 ANALÍTICA Y CRECIMIENTO',
       items: [
-        { id: 'analytics', label: 'Gráficos & Demografía', icon: <IconBarChart /> },
+        { id: 'analytics', label: 'Estadísticas (Resumen)', icon: <IconBarChart /> },
         { id: 'best-times', label: 'Mejor Hora para Publicar', icon: <IconClock /> },
-        { id: 'comparativa', label: 'Comparativa Institutos', icon: <IconUsers /> },
+        { id: 'comparativa', label: 'Comparativa Institucional', icon: <IconUsers /> },
         { id: 'integraciones', label: 'Integraciones de Datos', icon: <IconGlobe /> },
       ]
     },
     {
-      title: 'HUB & RECOMENDACIONES',
+      title: 'CENTRO DE ENLACES Y RECOMENDACIONES',
       items: [
-        { id: 'beacons', label: 'Beacons.ai — Hub Links', icon: <IconBeacons /> },
+        { id: 'beacons', label: 'Beacons.ai — Centro de Enlaces', icon: <IconBeacons /> },
         { id: 'recommendations', label: 'Recomendaciones OCI', icon: <IconRecommend /> },
       ]
     }
@@ -132,8 +132,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Logo */}
       <div className="sidebar-logo">
         <div className="sidebar-logo-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="#0f0d13" stroke="#0f0d13" strokeWidth="1">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#0f0d13"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor"/>
           </svg>
         </div>
         <div className="sidebar-logo-text">
