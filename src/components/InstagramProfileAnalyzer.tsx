@@ -163,30 +163,11 @@ URL: ${data.url}
       </div>
 
       {/* ── TOP BANNER: EXACT INSTASHADOW HEADER ── */}
-      <div
-        style={{
-          background: '#0d0f12',
-          border: '1px solid #1c212a',
-          borderRadius: 20,
-          padding: '28px 32px',
-          marginBottom: 24,
-          position: 'relative',
-          boxShadow: '0 16px 40px rgba(0, 0, 0, 0.65)'
-        }}
-      >
+      <div className="instashadow-banner">
         {/* Top Profile Info Row */}
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-            gap: 20,
-            marginBottom: 36
-          }}
-        >
+        <div className="instashadow-header-row">
           {/* Left: Avatar Crest + Titles */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 18, minWidth: 0 }}>
             <div
               style={{
                 width: 78,
@@ -213,25 +194,27 @@ URL: ${data.url}
                 }}
               />
             </div>
-            <div>
+            <div style={{ minWidth: 0 }}>
               <h1
                 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '1.45rem',
+                  fontSize: 'clamp(1.1rem, 2vw, 1.45rem)',
                   fontWeight: 800,
                   color: '#ffffff',
                   margin: 0,
-                  letterSpacing: '-0.01em'
+                  letterSpacing: '-0.01em',
+                  wordBreak: 'break-word'
                 }}
               >
                 {data.handle}
               </h1>
               <div
                 style={{
-                  fontSize: '0.92rem',
+                  fontSize: 'clamp(0.8rem, 1.3vw, 0.92rem)',
                   fontWeight: 600,
                   color: '#ffffff',
-                  marginTop: 4
+                  marginTop: 4,
+                  wordBreak: 'break-word'
                 }}
               >
                 {data.displayName}
@@ -240,7 +223,7 @@ URL: ${data.url}
           </div>
 
           {/* Right: Slogan + External Link */}
-          <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 8 }}>
+          <div className="instashadow-header-right">
             <div
               style={{
                 fontSize: '0.74rem',
@@ -281,19 +264,11 @@ URL: ${data.url}
         </div>
 
         {/* Middle Stats: 3 Big Columns */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: 20,
-            textAlign: 'center',
-            marginBottom: 36
-          }}
-        >
+        <div className="instashadow-stats-grid">
           <div>
             <div
               style={{
-                fontSize: '2.1rem',
+                fontSize: 'clamp(1.35rem, 2.4vw, 2.1rem)',
                 fontWeight: 900,
                 color: '#00e575',
                 fontFamily: 'var(--font-heading)',
@@ -319,7 +294,7 @@ URL: ${data.url}
           <div>
             <div
               style={{
-                fontSize: '2.1rem',
+                fontSize: 'clamp(1.35rem, 2.4vw, 2.1rem)',
                 fontWeight: 900,
                 color: '#00e575',
                 fontFamily: 'var(--font-heading)',
@@ -345,7 +320,7 @@ URL: ${data.url}
           <div>
             <div
               style={{
-                fontSize: '2.1rem',
+                fontSize: 'clamp(1.35rem, 2.4vw, 2.1rem)',
                 fontWeight: 900,
                 color: '#00e575',
                 fontFamily: 'var(--font-heading)',
@@ -370,13 +345,7 @@ URL: ${data.url}
         </div>
 
         {/* Bottom Row: 4 Metric Cards */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: 14
-          }}
-        >
+        <div className="instashadow-metrics-grid">
           {/* Card 1: Tasa de participación */}
           <div
             style={{

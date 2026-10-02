@@ -50,70 +50,67 @@ export const TopBar: React.FC<TopBarProps> = ({
     <>
       <header className="main-topbar">
         {/* Left Side: Mobile Hamburger & Section Title */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0, flex: '1 1 auto' }}>
           <button
             onClick={onMobileMenuToggle}
-            style={{
-              display: 'none', padding: '6px', borderRadius: 8, border: 'none',
-              background: 'var(--bg-card)', color: 'var(--text-secondary)', cursor: 'pointer'
-            }}
             className="mobile-menu-btn"
-            aria-label="Abrir Menú"
+            aria-label="Abrir Menú de Navegación"
+            title="Abrir menú"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
             </svg>
           </button>
 
-          <div>
-            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.98rem', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
+          <div style={{ minWidth: 0 }}>
+            <h1
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(0.85rem, 1.4vw, 1.02rem)',
+                fontWeight: 800,
+                color: 'var(--text-primary)',
+                letterSpacing: '-0.02em',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                maxWidth: 'min(440px, 45vw)'
+              }}
+              title={title}
+            >
               {title}
             </h1>
-            <p style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: 1 }}>{subtitle}</p>
+            <p
+              style={{
+                fontSize: '0.68rem',
+                color: 'var(--text-muted)',
+                marginTop: 1,
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                maxWidth: 'min(440px, 45vw)'
+              }}
+              className="topbar-subtitle"
+            >
+              {subtitle}
+            </p>
           </div>
         </div>
 
-        {/* Center: MSN Weather-style Search Bar & Location Switcher Pill */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }} className="topbar-center-actions">
-
-          {/* MSN Search Bar Pill */}
-          <div
+        {/* Center: Search Bar & Location Switcher */}
+        <div className="topbar-center-actions">
+          {/* Search Bar Pill / Button */}
+          <button
             onClick={() => setSearchOpen(true)}
-            style={{
-              display: 'flex', alignItems: 'center', gap: 8,
-              background: 'var(--bg-input)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: 9999,
-              padding: '6px 14px',
-              cursor: 'pointer',
-              fontSize: '0.75rem',
-              color: 'var(--text-muted)',
-              transition: 'all 0.15s ease',
-              width: 190
-            }}
+            className="topbar-search-pill"
             title="Buscar módulo o reporte (Ctrl + K)"
           >
             <IconSearch />
-            <span style={{ flex: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Buscar módulo...</span>
-            <kbd style={{
-              background: 'rgba(255,255,255,0.08)',
-              padding: '1px 5px',
-              borderRadius: 4,
-              fontSize: '0.62rem',
-              color: 'var(--text-secondary)',
-              fontFamily: 'monospace'
-            }}>Ctrl K</kbd>
-          </div>
+            <span className="search-text">Buscar módulo...</span>
+            <kbd className="search-kbd">Ctrl K</kbd>
+          </button>
 
-          {/* MSN Weather Location Switcher Pill */}
-          <div style={{
-            display: 'flex', alignItems: 'center',
-            background: 'var(--bg-input)',
-            border: '1px solid var(--border-subtle)',
-            borderRadius: 9999,
-            padding: 3,
-            gap: 2
-          }}>
+          {/* Desktop Location Switcher */}
+          <div className="topbar-cities-desktop">
             {cities.map(c => {
               const active = selectedCity === c.id;
               return (
@@ -123,74 +120,70 @@ export const TopBar: React.FC<TopBarProps> = ({
                     onCityChange(c.id);
                     showToast(`📍 Filtro de ubicación: ${c.label}`);
                   }}
-                  style={{
-                    background: active ? 'var(--neon)' : 'transparent',
-                    color: active ? 'var(--text-on-neon)' : 'var(--text-secondary)',
-                    fontWeight: active ? 800 : 500,
-                    fontSize: '0.72rem',
-                    padding: '4px 11px',
-                    borderRadius: 9999,
-                    border: 'none',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 4,
-                    transition: 'all 0.15s ease'
-                  }}
+                  className={`city-pill-btn ${active ? 'active' : ''}`}
                 >
                   {c.id !== 'todas' && <span style={{ fontSize: '0.65rem' }}>📍</span>}
-                  {c.label}
-                  {c.temp && <span style={{ opacity: active ? 0.9 : 0.6, fontSize: '0.65rem', fontWeight: 600 }}>{c.temp}</span>}
+                  <span>{c.label}</span>
+                  {c.temp && <span className="city-temp">{c.temp}</span>}
                 </button>
               );
             })}
           </div>
+
+          {/* Mobile & Tablet Compact Location Selector */}
+          <div className="topbar-cities-mobile">
+            <select
+              value={selectedCity}
+              onChange={e => {
+                const val = e.target.value as CityFilter;
+                onCityChange(val);
+                const match = cities.find(c => c.id === val);
+                showToast(`📍 Filtro de ubicación: ${match?.label || val}`);
+              }}
+              className="city-select-mobile"
+              aria-label="Seleccionar ubicación"
+            >
+              {cities.map(c => (
+                <option key={c.id} value={c.id}>
+                  {c.id === 'todas' ? '🌐 TDF Completa' : `📍 ${c.label} (${c.temp || ''})`}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
         {/* Right Actions: Live Indicator, Emergencias 101 & Report Button */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-
+        <div className="topbar-right-actions">
           {/* Live Status Badge */}
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: 6,
-            padding: '4px 10px', borderRadius: 9999,
-            background: 'rgba(27,181,0,0.12)',
-            border: '1px solid rgba(27,181,0,0.3)',
-            color: 'var(--success)',
-            fontSize: '0.68rem', fontWeight: 700
-          }}>
-            <span style={{
-              width: 7, height: 7, borderRadius: '50%', background: 'var(--success)',
-              boxShadow: '0 0 8px var(--success)', animation: 'pulse-slow 2s infinite'
-            }} />
-            GA4 API En Vivo
+          <div className="topbar-live-badge">
+            <span className="live-dot" />
+            <span className="live-text">GA4 En Vivo</span>
           </div>
 
           {/* Emergency 101 badge */}
-          <a href="tel:101" style={{
-            display: 'inline-flex', alignItems: 'center', gap: 5, padding: '6px 14px',
-            borderRadius: 9999, background: 'rgba(207,46,46,0.18)', color: '#ff6b6b',
-            border: '1px solid rgba(207,46,46,0.4)', fontSize: '0.72rem', fontWeight: 800,
-            letterSpacing: '0.04em', textDecoration: 'none', fontFamily: 'var(--font-heading)',
-            animation: 'pulse-red 2s infinite'
-          }}>
+          <a
+            href="tel:101"
+            className="topbar-101-badge"
+            title="Línea 101 Emergencias Policiales"
+          >
             101
           </a>
 
+          {/* Report Button */}
           <button
             onClick={() => {
               onOpenReport();
               showToast('📄 Abriendo Generador de Informes Institucionales...');
             }}
-            className="btn-neon"
-            style={{ fontSize: '0.74rem' }}
+            className="btn-neon topbar-report-btn"
+            title="Generar informe oficial"
           >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
               <line x1="12" y1="15" x2="12" y2="3"/>
             </svg>
-            Informe
+            <span className="report-btn-text">Informe</span>
           </button>
         </div>
       </header>

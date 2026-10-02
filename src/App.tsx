@@ -148,6 +148,7 @@ const App: React.FC = () => {
           showToast(`📍 Ubicación seleccionada: ${c.toUpperCase()}`);
         }}
         isMobileOpen={mobileMenuOpen}
+        onCloseMobile={() => setMobileMenuOpen(false)}
       />
 
       {/* ── MAIN AREA ── */}
@@ -177,11 +178,21 @@ const App: React.FC = () => {
         <main className="main-body anim-fadein" key={activeTab}>
 
           {/* MSN WEATHER-STYLE HORIZONTAL SUB-NAV PILL STRIP (UX Improvement) */}
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: 8,
-            overflowX: 'auto', paddingBottom: 16, marginBottom: 20,
-            scrollbarWidth: 'none'
-          }} className="scrollbar-hide">
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              overflowX: 'auto',
+              paddingBottom: 10,
+              marginBottom: 20,
+              WebkitOverflowScrolling: 'touch',
+              width: '100%',
+              maxWidth: '100%',
+              boxSizing: 'border-box'
+            }}
+            className="scrollbar-hide"
+          >
             {overviewQuickTabs.map(qt => {
               const active = activeTab === qt.id;
               return (
@@ -205,8 +216,9 @@ const App: React.FC = () => {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: 6,
+                    flexShrink: 0,
                     transition: 'all 0.18s ease',
-                    boxShadow: active ? '0 4px 15px rgba(255,208,0,0.25)' : 'none'
+                    boxShadow: active ? '0 4px 15px rgba(252,185,0,0.25)' : 'none'
                   }}
                 >
                   <span>{qt.icon}</span>

@@ -422,16 +422,9 @@ export const EstadisticasResumen: React.FC = () => {
           </div>
 
           {/* ── MAIN 2-COLUMN GRID: [LEFT: Views & Interactions by Content Type] & [RIGHT: Carrusel lateral con contenidos destacados] ── */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1.7fr) minmax(320px, 1fr)',
-              gap: 22,
-              alignItems: 'start'
-            }}
-          >
+          <div className="resumen-split-grid">
             {/* ── LEFT COLUMN: APARTADOS DE VISUALIZACIÓN E INTERACCIONES ── */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24, minWidth: 0 }}>
 
               {/* ── SECCIÓN A: VISUALIZACIÓN POR TIPO DE CONTENIDO (SEGUIDORES vs NO SEGUIDORES) ── */}
               <div
@@ -694,15 +687,7 @@ export const EstadisticasResumen: React.FC = () => {
             </div>
 
             {/* ── RIGHT COLUMN: CARRUSEL LATERAL CON TARJETAS DE CONTENIDOS DESTACADOS (CONTENIDO REAL DEL USUARIO) ── */}
-            <div
-              style={{
-                position: 'sticky',
-                top: 20,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 16
-              }}
-            >
+            <div className="resumen-carousel-col">
               <div
                 className="card"
                 style={{
