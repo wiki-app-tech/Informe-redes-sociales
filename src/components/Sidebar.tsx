@@ -84,7 +84,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     items: { id: TabId; label: string; icon: React.ReactNode }[];
   }[] = [
     {
-      title: '⚡ SUITE AVANZADA 360',
+      title: 'Suite de Analítica y Reportes',
       items: [
         { id: 'instagram-analyzer', label: 'Analizador de Perfil de Instagram', icon: <IconInstagram /> },
         { id: 'facebook-analyzer', label: 'Analizador de Perfil de Facebook', icon: <IconFacebook /> },

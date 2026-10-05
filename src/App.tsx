@@ -42,7 +42,7 @@ import {
   IntegracionesSection
 } from './components/GrowthModules';
 
-// Enterprise 360 Suite Modules
+// Suite de Analítica y Reportes Modules
 import { InstagramProfileAnalyzer } from './components/InstagramProfileAnalyzer';
 import { RealtimeDashboard } from './components/RealtimeDashboard';
 import { MultiplatformAnalytics } from './components/MultiplatformAnalytics';
@@ -55,7 +55,7 @@ import { ResumenMensualSection } from './components/ResumenMensualSection';
 import { FacebookProfileAnalyzer } from './components/FacebookProfileAnalyzer';
 
 const TAB_TITLES: Record<TabId, { title: string; sub: string }> = {
-  // Suite Avanzada 360
+  // Suite de Analítica y Reportes
   'instagram-analyzer':     { title: 'Analizador de Perfil de Instagram — @policiaprovincialtdf', sub: 'Análisis profundo de audiencia, demografía, seguidores falsos, sentimiento, crecimiento e interacción' },
   'facebook-analyzer':      { title: 'Analizador de Página y Perfil de Facebook — @policiaprovincialtdf', sub: 'Auditoría integral con 16 mil seguidores, 113 seguidos y 2.2 mil publicaciones — Métricas en vivo OCI' },
   'resumen-mensual':        { title: 'Resumen Mensual — Reels, Historias y Actividad', sub: 'Top de visualizaciones, desglose de seguidores vs. no seguidores, calendario de historias y comparativa mensual' },
@@ -263,7 +263,7 @@ const App: React.FC = () => {
             <DirectorySection stations={STATIONS_DIRECTORY} selectedCity={selectedCity} />
           )}
 
-          {/* ── ENTERPRISE 360 SUITE TABS ── */}
+          {/* ── SUITE DE ANALÍTICA Y REPORTES TABS ── */}
           {activeTab === 'instagram-analyzer' && (
             <InstagramProfileAnalyzer />
           )}
