@@ -8,7 +8,7 @@ export type TabId =
   // ── Core ──
   | 'overview' | 'feed' | 'directory'
   // ── Enterprise Modules ──
-  | 'instagram-analyzer' | 'resumen-mensual' | 'realtime-ga4' | 'multiplatform-analytics' | 'report-wizard' | 'time-optimizer' | 'hashtag-tracker' | 'instagram-link-manager'
+  | 'instagram-analyzer' | 'facebook-analyzer' | 'resumen-mensual' | 'realtime-ga4' | 'multiplatform-analytics' | 'report-wizard' | 'time-optimizer' | 'hashtag-tracker' | 'instagram-link-manager'
   // ── Reporting ──
   | 'informe-institucional' | 'dashboard-plataforma' | 'ranking-posts' | 'monitor-hashtags'
   // ── Planificacion ──

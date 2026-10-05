@@ -87,6 +87,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       title: '⚡ SUITE AVANZADA 360',
       items: [
         { id: 'instagram-analyzer', label: 'Analizador de Perfil de Instagram', icon: <IconInstagram /> },
+        { id: 'facebook-analyzer', label: 'Analizador de Perfil de Facebook', icon: <IconFacebook /> },
         { id: 'resumen-mensual', label: 'Resumen Mensual (Reels & Historias)', icon: <IconBarChart /> },
         { id: 'realtime-ga4', label: 'Monitoreo en Tiempo Real', icon: <IconActivity /> },
         { id: 'multiplatform-analytics', label: 'Estadísticas Multiplataforma', icon: <IconBarChart /> },

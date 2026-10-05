@@ -52,10 +52,12 @@ import { HashtagTracker } from './components/HashtagTracker';
 import { InstagramLinkManager } from './components/InstagramLinkManager';
 import { EstadisticasResumen } from './components/EstadisticasResumen';
 import { ResumenMensualSection } from './components/ResumenMensualSection';
+import { FacebookProfileAnalyzer } from './components/FacebookProfileAnalyzer';
 
 const TAB_TITLES: Record<TabId, { title: string; sub: string }> = {
   // Suite Avanzada 360
   'instagram-analyzer':     { title: 'Analizador de Perfil de Instagram — @policiaprovincialtdf', sub: 'Análisis profundo de audiencia, demografía, seguidores falsos, sentimiento, crecimiento e interacción' },
+  'facebook-analyzer':      { title: 'Analizador de Página y Perfil de Facebook — @policiaprovincialtdf', sub: 'Auditoría integral de 32.5K seguidores, autenticidad, sentimiento de vecinos, viralidad y recomendaciones OCI' },
   'resumen-mensual':        { title: 'Resumen Mensual — Reels, Historias y Actividad', sub: 'Top de visualizaciones, desglose de seguidores vs. no seguidores, calendario de historias y comparativa mensual' },
   'realtime-ga4':           { title: 'Monitoreo en Tiempo Real (API GA4 Directa / MCP)', sub: 'Métricas activas en vivo, mapa de calor de páginas y registro de eventos' },
   'multiplatform-analytics': { title: 'Estadísticas Multiplataforma — Resumen', sub: 'Todo el contenido, visualizaciones, seguidores netos, interacciones y destacados' },
@@ -121,6 +123,7 @@ const App: React.FC = () => {
   // Quick sub-navigation tabs for Overview page (MSN Weather Horizontal Strip style)
   const overviewQuickTabs: { id: TabId; label: string; icon: string }[] = [
     { id: 'instagram-analyzer', label: 'Analizador de Instagram', icon: '📸' },
+    { id: 'facebook-analyzer', label: 'Analizador de Facebook', icon: '👥' },
     { id: 'resumen-mensual', label: 'Resumen Mensual', icon: '📅' },
     { id: 'analytics', label: 'Estadísticas (Resumen)', icon: '📊' },
     { id: 'overview', label: 'Información General', icon: '⭐' },
@@ -263,6 +266,10 @@ const App: React.FC = () => {
           {/* ── ENTERPRISE 360 SUITE TABS ── */}
           {activeTab === 'instagram-analyzer' && (
             <InstagramProfileAnalyzer />
+          )}
+
+          {activeTab === 'facebook-analyzer' && (
+            <FacebookProfileAnalyzer />
           )}
 
           {activeTab === 'resumen-mensual' && (
