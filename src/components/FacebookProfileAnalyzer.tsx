@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FACEBOOK_PROFILE_AUDIT } from '../data/facebookAnalyzerData';
 import { IconDownload, IconExternalLink, IconHeart, IconFacebook, IconShare } from './Sidebar';
-import avatarInstagram from '../assets/avatar-instagram.png';
+import logoOficial from '../assets/logo-policia-oficial.jpg';
 
 export const FacebookProfileAnalyzer: React.FC = () => {
   const [data, setData] = useState(FACEBOOK_PROFILE_AUDIT);
@@ -139,7 +139,7 @@ URL: ${data.url}
                 width: 82,
                 height: 82,
                 borderRadius: '50%',
-                background: '#000000',
+                background: '#ffffff',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -151,7 +151,7 @@ URL: ${data.url}
               }}
             >
               <img
-                src={avatarInstagram}
+                src={logoOficial}
                 alt="Policía de Tierra del Fuego (Facebook Oficial)"
                 style={{
                   width: '100%',

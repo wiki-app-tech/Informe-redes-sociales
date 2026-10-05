@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { YOUTUBE_PROFILE_AUDIT } from '../data/youtubeAnalyzerData';
 import { IconDownload, IconExternalLink, IconYoutube } from './Sidebar';
-import { PoliciaTdfBadge } from './InstagramProfileAnalyzer';
+import logoOficial from '../assets/logo-policia-oficial.jpg';
 
 export const YoutubeProfileAnalyzer: React.FC = () => {
   const [data, setData] = useState(YOUTUBE_PROFILE_AUDIT);
@@ -125,8 +125,12 @@ URL: ${data.url}
 
         <div className="instashadow-header-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16, marginBottom: 20 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 18, minWidth: 0 }}>
-            <div style={{ width: 82, height: 82, borderRadius: '50%', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '3px solid #ff0000', flexShrink: 0, boxShadow: '0 0 20px rgba(255, 0, 0, 0.4)' }}>
-              <PoliciaTdfBadge size={68} />
+            <div style={{ width: 82, height: 82, borderRadius: '50%', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', border: '3px solid #ff0000', flexShrink: 0, boxShadow: '0 0 20px rgba(255, 0, 0, 0.4)' }}>
+              <img
+                src={logoOficial}
+                alt="Policía de Tierra del Fuego Oficial"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
             </div>
 
             <div style={{ minWidth: 0 }}>

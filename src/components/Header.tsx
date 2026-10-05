@@ -1,5 +1,6 @@
 import React from 'react';
 import type { CityFilter } from '../types/dashboard';
+import logoOficial from '../assets/logo-policia-oficial.jpg';
 import {
   ShieldIcon,
   PhoneIcon,
@@ -62,8 +63,8 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Main Title & Social Quick Links */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 my-2">
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-blue-900 to-slate-900 border-2 border-amber-500/80 p-2 shadow-2xl flex items-center justify-center shrink-0">
-              <ShieldIcon className="w-12 h-12 text-amber-400 drop-shadow-md" />
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white border-2 border-amber-500/80 p-1 shadow-2xl flex items-center justify-center shrink-0 overflow-hidden">
+              <img src={logoOficial} alt="Policía Provincial de Tierra del Fuego" className="w-full h-full object-cover rounded-xl" />
             </div>
             <div>
               <div className="flex items-center gap-2">

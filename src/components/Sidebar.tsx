@@ -1,5 +1,6 @@
 import React from 'react';
 import type { TabId, CityFilter } from '../types/dashboard';
+import logoOficial from '../assets/logo-policia-oficial.jpg';
 
 // Inline SVG icon primitives
 const I = (path: React.ReactNode, extra?: string) => (
@@ -154,10 +155,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <aside className={`sidebar ${isMobileOpen ? 'open' : ''}`}>
       {/* Logo */}
       <div className="sidebar-logo">
-        <div className="sidebar-logo-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor"/>
-          </svg>
+        <div className="sidebar-logo-icon" style={{ padding: 0, overflow: 'hidden', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <img src={logoOficial} alt="Policía TDF" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
         <div className="sidebar-logo-text">
           Policía TDF<br />

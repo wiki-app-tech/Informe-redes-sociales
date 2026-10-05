@@ -1,75 +1,21 @@
 import React, { useState } from 'react';
 import { INSTAGRAM_PROFILE_AUDIT } from '../data/instagramAnalyzerData';
 import { IconDownload, IconExternalLink, IconHeart } from './Sidebar';
-import avatarInstagram from '../assets/avatar-instagram.png';
+import logoOficial from '../assets/logo-policia-oficial.jpg';
 
 // Official Crest of Policía de Tierra del Fuego, Antártida e Islas del Atlántico Sur
 export const PoliciaTdfBadge: React.FC<{ size?: number }> = ({ size = 76 }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Black Base Disc */}
-    <circle cx="50" cy="50" r="48" fill="#000000" stroke="#ffd700" strokeWidth="1" />
-
-    {/* Golden Sun Rays Burst (24 rays) */}
-    <g fill="#ffd700">
-      {Array.from({ length: 24 }).map((_, i) => {
-        const angle = (i * 360) / 24;
-        const isLong = i % 2 === 0;
-        return (
-          <polygon
-            key={i}
-            points={isLong ? "50,7 46,31 54,31" : "50,13 47,31 53,31"}
-            transform={`rotate(${angle} 50 50)`}
-          />
-        );
-      })}
-    </g>
-
-    {/* Inner Black Circular Base */}
-    <circle cx="50" cy="50" r="29" fill="#000000" stroke="#ffd700" strokeWidth="1.6" />
-
-    {/* Shield Outline with Clip */}
-    <g clipPath="url(#crestShieldClip)">
-      {/* Background of shield */}
-      <rect x="31" y="28" width="38" height="44" fill="#ffffff" />
-
-      {/* Top Left Quadrant: Red Cross on Gold */}
-      <rect x="31" y="28" width="19" height="17" fill="#facc15" />
-      <path d="M40.5 30 V43 M33.5 35.5 H47.5" stroke="#dc2626" strokeWidth="3" strokeLinecap="square" />
-
-      {/* Top Right Quadrant: Checkered Damero (Policía) */}
-      <g>
-        <rect x="50" y="28" width="19" height="17" fill="#ffffff" />
-        <rect x="50" y="28" width="4.75" height="4.25" fill="#1e40af" />
-        <rect x="59.5" y="28" width="4.75" height="4.25" fill="#1e40af" />
-        <rect x="54.75" y="32.25" width="4.75" height="4.25" fill="#1e40af" />
-        <rect x="64.25" y="32.25" width="4.75" height="4.25" fill="#1e40af" />
-        <rect x="50" y="36.5" width="4.75" height="4.25" fill="#1e40af" />
-        <rect x="59.5" y="36.5" width="4.75" height="4.25" fill="#1e40af" />
-        <rect x="54.75" y="40.75" width="4.75" height="4.25" fill="#1e40af" />
-        <rect x="64.25" y="40.75" width="4.75" height="4.25" fill="#1e40af" />
-      </g>
-
-      {/* Bottom Half of Shield: White Ground with Argentinian Sun & Ribbon */}
-      <rect x="31" y="45" width="38" height="27" fill="#f8fafc" />
-      <circle cx="50" cy="53" r="4.5" fill="#facc15" stroke="#ca8a04" strokeWidth="0.8" />
-      <path d="M37 63 Q50 67 63 63" stroke="#facc15" strokeWidth="2.5" fill="none" />
-      <path d="M40 60 L36 67 M60 60 L64 67" stroke="#eab308" strokeWidth="1.5" />
-    </g>
-
-    {/* Shield Border */}
-    <path
-      d="M31 28 H69 V50 C69 61 50 71 50 71 C50 71 31 61 31 50 Z"
-      fill="none"
-      stroke="#1e293b"
-      strokeWidth="1.8"
-    />
-
-    <defs>
-      <clipPath id="crestShieldClip">
-        <path d="M31 28 H69 V50 C69 61 50 71 50 71 C50 71 31 61 31 50 Z" />
-      </clipPath>
-    </defs>
-  </svg>
+  <img
+    src={logoOficial}
+    alt="Escudo Oficial Policía de Tierra del Fuego"
+    style={{
+      width: size,
+      height: size,
+      borderRadius: '50%',
+      objectFit: 'cover',
+      display: 'block'
+    }}
+  />
 );
 
 export const InstagramProfileAnalyzer: React.FC = () => {
@@ -184,7 +130,7 @@ URL: ${data.url}
               }}
             >
               <img
-                src={avatarInstagram}
+                src={logoOficial}
                 alt="Policía de Tierra del Fuego (@policiaprovincialtdf)"
                 style={{
                   width: '100%',

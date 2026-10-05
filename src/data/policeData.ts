@@ -24,7 +24,7 @@ export const OFFICIAL_ACCOUNTS: SocialAccount[] = [
     monthlyPosts: 72,
     monthlyReach: 124000,
     verified: true,
-    avatarUrl: ''
+    avatarUrl: './logo-policia-oficial.jpg'
   },
   {
     id: 'ig-official',
@@ -38,35 +38,21 @@ export const OFFICIAL_ACCOUNTS: SocialAccount[] = [
     monthlyPosts: 54,
     monthlyReach: 142000,
     verified: true,
-    avatarUrl: ''
+    avatarUrl: './logo-policia-oficial.jpg'
   },
   {
-    id: 'web-official',
-    name: 'Portal Web Oficial',
-    platform: 'website',
-    handle: 'policia.tierradelfuego.gob.ar',
-    url: 'https://policia.tierradelfuego.gob.ar/',
-    followers: 0,
-    growthRate: 12.1,
-    engagementRate: 0,
-    monthlyPosts: 24,
-    monthlyReach: 62000,
-    verified: true,
-    avatarUrl: ''
-  },
-  {
-    id: 'tw-official',
-    name: 'Policía TDF — X',
-    platform: 'twitter',
+    id: 'tt-official',
+    name: 'TikTok Policía TDF',
+    platform: 'tiktok' as any,
     handle: '@policiatdf',
-    url: 'https://twitter.com/policiatdf',
-    followers: 5200,
-    growthRate: 2.1,
-    engagementRate: 3.4,
-    monthlyPosts: 30,
-    monthlyReach: 28000,
+    url: 'https://www.tiktok.com/@policiatdf',
+    followers: 14200,
+    growthRate: 14.2,
+    engagementRate: 9.1,
+    monthlyPosts: 28,
+    monthlyReach: 310000,
     verified: true,
-    avatarUrl: ''
+    avatarUrl: './logo-policia-oficial.jpg'
   },
   {
     id: 'yt-official',
@@ -80,7 +66,35 @@ export const OFFICIAL_ACCOUNTS: SocialAccount[] = [
     monthlyPosts: 6,
     monthlyReach: 19500,
     verified: true,
-    avatarUrl: ''
+    avatarUrl: './logo-policia-oficial.jpg'
+  },
+  {
+    id: 'web-official',
+    name: 'Portal Web Oficial',
+    platform: 'website',
+    handle: 'policia.tierradelfuego.gob.ar',
+    url: 'https://policia.tierradelfuego.gob.ar/',
+    followers: 0,
+    growthRate: 12.1,
+    engagementRate: 0,
+    monthlyPosts: 24,
+    monthlyReach: 62000,
+    verified: true,
+    avatarUrl: './logo-policia-oficial.jpg'
+  },
+  {
+    id: 'tw-official',
+    name: 'Policía TDF — X',
+    platform: 'twitter',
+    handle: '@policiatdf',
+    url: 'https://twitter.com/policiatdf',
+    followers: 5200,
+    growthRate: 2.1,
+    engagementRate: 3.4,
+    monthlyPosts: 30,
+    monthlyReach: 28000,
+    verified: true,
+    avatarUrl: './logo-policia-oficial.jpg'
   },
   {
     id: 'bc-official',
@@ -94,7 +108,7 @@ export const OFFICIAL_ACCOUNTS: SocialAccount[] = [
     monthlyPosts: 0,
     monthlyReach: 3200,
     verified: true,
-    avatarUrl: ''
+    avatarUrl: './logo-policia-oficial.jpg'
   }
 ];
 
