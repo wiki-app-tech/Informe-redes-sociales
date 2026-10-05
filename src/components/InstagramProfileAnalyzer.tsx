@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { INSTAGRAM_PROFILE_AUDIT } from '../data/instagramAnalyzerData';
 import { IconDownload, IconExternalLink, IconHeart } from './Sidebar';
 import logoOficial from '../assets/logo-policia-oficial.jpg';
+import UserDwellTimeSlider from './UserDwellTimeSlider';
 
 // Official Crest of Policía de Tierra del Fuego, Antártida e Islas del Atlántico Sur
 export const PoliciaTdfBadge: React.FC<{ size?: number }> = ({ size = 76 }) => (
@@ -520,6 +521,9 @@ URL: ${data.url}
           </div>
         </div>
       </div>
+
+      {/* ── REAL USER DWELL TIME SLIDER (TIEMPO REAL EN PLATAFORMA) ── */}
+      <UserDwellTimeSlider platformName="instagram" platformColor="#E1306C" />
 
       {/* ── SECONDARY SUB-NAVIGATION TABS (Profile Analyzer Modules) ── */}
       <div

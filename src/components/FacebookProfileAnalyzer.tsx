@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FACEBOOK_PROFILE_AUDIT } from '../data/facebookAnalyzerData';
 import { IconDownload, IconExternalLink, IconHeart, IconFacebook, IconShare } from './Sidebar';
 import logoOficial from '../assets/logo-policia-oficial.jpg';
+import UserDwellTimeSlider from './UserDwellTimeSlider';
 
 export const FacebookProfileAnalyzer: React.FC = () => {
   const [data, setData] = useState(FACEBOOK_PROFILE_AUDIT);
@@ -398,6 +399,9 @@ URL: ${data.url}
           </div>
         </div>
       </div>
+
+      {/* ── REAL USER DWELL TIME SLIDER (TIEMPO REAL EN PLATAFORMA) ── */}
+      <UserDwellTimeSlider platformName="facebook" platformColor="#1877f2" />
 
       {/* ── SUB-TABS NAVIGATION ── */}
       <div

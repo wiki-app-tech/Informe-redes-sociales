@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TIKTOK_PROFILE_AUDIT } from '../data/tiktokAnalyzerData';
 import { IconDownload, IconExternalLink, IconHeart } from './Sidebar';
 import logoOficial from '../assets/logo-policia-oficial.jpg';
+import UserDwellTimeSlider from './UserDwellTimeSlider';
 
 export const TikTokProfileAnalyzer: React.FC = () => {
   const [data, setData] = useState(TIKTOK_PROFILE_AUDIT);
@@ -228,6 +229,9 @@ URL: ${data.url}
           </div>
         </div>
       </div>
+
+      {/* ── REAL USER DWELL TIME SLIDER (TIEMPO REAL EN PLATAFORMA) ── */}
+      <UserDwellTimeSlider platformName="tiktok" platformColor="#00f2ea" />
 
       {/* ── SUB-TABS NAVIGATION ── */}
       <div style={{ display: 'flex', gap: 6, marginBottom: 20, overflowX: 'auto', paddingBottom: 4 }}>
