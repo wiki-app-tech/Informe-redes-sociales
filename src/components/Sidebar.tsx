@@ -64,6 +64,12 @@ export const IconWhatsapp     = () => (
   </svg>
 );
 
+export const IconTiktok = () => (
+  <svg className="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0, width: 18, height: 18 }}>
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298 0 .586.05.86.13V9.4a6.33 6.33 0 0 0-1.06-.09A6.34 6.34 0 0 0 3 15.65a6.34 6.34 0 0 0 10.82 4.47 6.27 6.27 0 0 0 1.93-4.47V8.69a8.18 8.18 0 0 0 4.79 1.54V6.78a4.85 4.85 0 0 1-.95-.09z"/>
+  </svg>
+);
+
 // ── SIDEBAR ──────────────────────────────────────────────────────────────────
 interface SidebarProps {
   activeTab: TabId;
@@ -88,6 +94,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
       items: [
         { id: 'instagram-analyzer', label: 'Analizador de Perfil de Instagram', icon: <IconInstagram /> },
         { id: 'facebook-analyzer', label: 'Analizador de Perfil de Facebook', icon: <IconFacebook /> },
+        { id: 'tiktok-analyzer', label: 'Analizador de Perfil de TikTok', icon: <IconTiktok /> },
+        { id: 'youtube-analyzer', label: 'Analizador de Canal de YouTube', icon: <IconYoutube /> },
+        { id: 'website-analyzer', label: 'Analizador de Portal Web Oficial', icon: <IconGlobe /> },
         { id: 'resumen-mensual', label: 'Resumen Mensual (Reels & Historias)', icon: <IconBarChart /> },
         { id: 'realtime-ga4', label: 'Monitoreo en Tiempo Real', icon: <IconActivity /> },
         { id: 'multiplatform-analytics', label: 'Estadísticas Multiplataforma', icon: <IconBarChart /> },
