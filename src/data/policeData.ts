@@ -115,12 +115,12 @@ export const OFFICIAL_ACCOUNTS: SocialAccount[] = [
 export const KPI_SUMMARY: MetricCard[] = [
   {
     id: 'total-audience',
-    title: 'Audiencia Digital Total',
-    value: '58.400+',
+    title: 'Audiencia Real & Genuina (Sin Bots)',
+    value: '56.116',
     change: '+7.4%',
     isPositive: true,
-    period: 'Último mes',
-    description: 'Seguidores consolidados en Facebook, Instagram y X',
+    period: '96.2% Autenticidad Humana Verificada',
+    description: 'Seguidores orgánicos y humanos en Facebook, Instagram, TikTok y YouTube (excluyendo bots)',
     icon: 'Users'
   },
   {

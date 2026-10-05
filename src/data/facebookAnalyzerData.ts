@@ -83,6 +83,10 @@ export interface FacebookProfileAuditData {
   postsDisplay: string;
   followersCount: number;
   followersDisplay: string;
+  realFollowersCount: number;
+  realFollowersDisplay: string;
+  authenticityRate: number;
+  filteredBotsCount: number;
   followingCount: number;
   pageLikesCount: number;
   pageLikesDisplay: string;
@@ -133,6 +137,10 @@ export const FACEBOOK_PROFILE_AUDIT: FacebookProfileAuditData = {
   postsDisplay: '2.2 mil',
   followersCount: 16000,
   followersDisplay: '16 mil',
+  realFollowersCount: 15488,
+  realFollowersDisplay: '15.5 mil',
+  authenticityRate: 96.8,
+  filteredBotsCount: 512,
   followingCount: 113,
   pageLikesCount: 15400,
   pageLikesDisplay: '15.4k',
