@@ -80,10 +80,13 @@ export interface FacebookProfileAuditData {
   bio: string;
   category: string;
   postsCount: number;
+  postsDisplay: string;
   followersCount: number;
   followersDisplay: string;
+  followingCount: number;
   pageLikesCount: number;
   pageLikesDisplay: string;
+  ratio: number;
   ratingScore: number;
   recommendationPct: number;
   responseRate: string;
@@ -126,11 +129,14 @@ export const FACEBOOK_PROFILE_AUDIT: FacebookProfileAuditData = {
   coverUrl: 'https://images.unsplash.com/photo-1544717302-de2939b7ef71?auto=format&fit=crop&w=1200&q=80',
   bio: 'Página Oficial de la Policía de la Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur. Alertas viales Ruta 3, operativos de seguridad, búsqueda y rescate, egresos de cadetes y prevención ciudadana. 📞 Emergencias 101 las 24 hs.',
   category: 'Organización Gubernamental · Seguridad Pública',
-  postsCount: 4890,
-  followersCount: 32450,
-  followersDisplay: '32.5k',
-  pageLikesCount: 28920,
-  pageLikesDisplay: '28.9k',
+  postsCount: 2200,
+  postsDisplay: '2.2 mil',
+  followersCount: 16000,
+  followersDisplay: '16 mil',
+  followingCount: 113,
+  pageLikesCount: 15400,
+  pageLikesDisplay: '15.4k',
+  ratio: 141.6,
   ratingScore: 4.6,
   recommendationPct: 89,
   responseRate: '94,2%',
@@ -152,31 +158,31 @@ export const FACEBOOK_PROFILE_AUDIT: FacebookProfileAuditData = {
   avgReachVal: '185.000',
   avgReachDelta: '+21,8% respecto al mes pasado',
 
-  // 🛡️ 1. AUDIENCIA & CALIDAD DE SEGUIDORES
+  // 🛡️ 1. AUDIENCIA & CALIDAD DE SEGUIDORES (Base: 16.000 seguidores reales)
   audience: {
     localResidents: {
       pct: 86.4,
-      count: 28036,
+      count: 13824,
       description: 'Vecinos y familias fueguinas residentes en Río Grande, Ushuaia y Tolhuin con consumo habitual de partes y comunicados.'
     },
     mediaAndAuthorities: {
       pct: 4.8,
-      count: 1557,
+      count: 768,
       description: 'Periodistas, medios de comunicación provinciales, funcionarios y dependencias gubernamentales.'
     },
     regionalFollowers: {
       pct: 5.6,
-      count: 1817,
+      count: 896,
       description: 'Usuarios de la Región Patagónica (Santa Cruz, Chubut) y transportistas que transitan regularmente por la Isla.'
     },
     inactiveOrSpam: {
       pct: 3.2,
-      count: 1038,
+      count: 512,
       description: 'Perfiles inactivos o sin interacción reciente. Tasa de autenticidad óptima superior al 96%.'
     }
   },
 
-  // 👥 2. DEMOGRAFÍA Y LOCALIZACIÓN
+  // 👥 2. DEMOGRAFÍA Y LOCALIZACIÓN (Base: 16.000 seguidores)
   demographics: {
     gender: {
       female: 54.0,
@@ -191,11 +197,11 @@ export const FACEBOOK_PROFILE_AUDIT: FacebookProfileAuditData = {
       { range: '55+', pct: 5.8 }
     ],
     cities: [
-      { city: 'Río Grande', province: 'Tierra del Fuego', pct: 48.5, count: 15738 },
-      { city: 'Ushuaia', province: 'Tierra del Fuego', pct: 41.2, count: 13369 },
-      { city: 'Tolhuin', province: 'Tierra del Fuego', pct: 6.8, count: 2206 },
-      { city: 'CABA / Buenos Aires', province: 'Buenos Aires', pct: 2.1, count: 681 },
-      { city: 'Río Gallegos', province: 'Santa Cruz', pct: 1.4, count: 454 }
+      { city: 'Río Grande', province: 'Tierra del Fuego', pct: 48.5, count: 7760 },
+      { city: 'Ushuaia', province: 'Tierra del Fuego', pct: 41.2, count: 6592 },
+      { city: 'Tolhuin', province: 'Tierra del Fuego', pct: 6.8, count: 1088 },
+      { city: 'CABA / Buenos Aires', province: 'Buenos Aires', pct: 2.1, count: 336 },
+      { city: 'Río Gallegos', province: 'Santa Cruz', pct: 1.4, count: 224 }
     ],
     countries: [
       { country: 'Argentina', flag: '🇦🇷', pct: 97.2 },
@@ -338,30 +344,30 @@ export const FACEBOOK_PROFILE_AUDIT: FacebookProfileAuditData = {
 
   // 📈 4. CRECIMIENTO HISTÓRICO Y PROYECCIONES
   growth: {
-    currentFollowers: 32450,
-    currentPageLikes: 28920,
-    monthlyGrowthRate: 4.8,
-    netMonthlyGain: 1240,
-    avgWeeklyGained: 340,
-    avgWeeklyLost: 30,
+    currentFollowers: 16000,
+    currentPageLikes: 15400,
+    monthlyGrowthRate: 5.8,
+    netMonthlyGain: 880,
+    avgWeeklyGained: 245,
+    avgWeeklyLost: 18,
     timeline: [
-      { month: 'Oct 2025', followers: 23500, netGain: 780, reach: 115000 },
-      { month: 'Nov 2025', followers: 24350, netGain: 850, reach: 124000 },
-      { month: 'Dic 2025', followers: 25300, netGain: 950, reach: 138000 },
-      { month: 'Ene 2026', followers: 26400, netGain: 1100, reach: 152000 },
-      { month: 'Feb 2026', followers: 27350, netGain: 950, reach: 148000 },
-      { month: 'Mar 2026', followers: 28200, netGain: 850, reach: 155000 },
-      { month: 'Abr 2026', followers: 28950, netGain: 750, reach: 158000 },
-      { month: 'May 2026', followers: 29700, netGain: 750, reach: 164000 },
-      { month: 'Jun 2026', followers: 30500, netGain: 800, reach: 172000 },
-      { month: 'Jul 2026', followers: 31200, netGain: 700, reach: 178000 },
-      { month: 'Ago 2026', followers: 31210, netGain: 980, reach: 168000 },
-      { month: 'Sep 2026', followers: 32450, netGain: 1240, reach: 185000 }
+      { month: 'Oct 2025', followers: 11200, netGain: 420, reach: 74000 },
+      { month: 'Nov 2025', followers: 11650, netGain: 450, reach: 78000 },
+      { month: 'Dic 2025', followers: 12150, netGain: 500, reach: 84000 },
+      { month: 'Ene 2026', followers: 12700, netGain: 550, reach: 92000 },
+      { month: 'Feb 2026', followers: 13200, netGain: 500, reach: 88000 },
+      { month: 'Mar 2026', followers: 13650, netGain: 450, reach: 95000 },
+      { month: 'Abr 2026', followers: 14100, netGain: 450, reach: 98000 },
+      { month: 'May 2026', followers: 14550, netGain: 450, reach: 102000 },
+      { month: 'Jun 2026', followers: 15000, netGain: 450, reach: 108000 },
+      { month: 'Jul 2026', followers: 15450, netGain: 450, reach: 112000 },
+      { month: 'Ago 2026', followers: 15600, netGain: 150, reach: 115000 },
+      { month: 'Sep 2026', followers: 16000, netGain: 400, reach: 124000 }
     ],
     milestones: [
-      { target: '35,000 Seguidores', targetFollowers: 35000, estimatedDays: 62, projectedDate: 'Diciembre 2026 (Operativo Fiestas)' },
-      { target: '40,000 Seguidores', targetFollowers: 40000, estimatedDays: 180, projectedDate: 'Abril 2027 (Operativo Invierno)' },
-      { target: '50,000 Seguidores', targetFollowers: 50000, estimatedDays: 420, projectedDate: 'Noviembre 2027' }
+      { target: '18,000 Seguidores', targetFollowers: 18000, estimatedDays: 78, projectedDate: 'Diciembre 2026 (Operativo Fiestas)' },
+      { target: '20,000 Seguidores', targetFollowers: 20000, estimatedDays: 160, projectedDate: 'Marzo 2027 (Operativo Invierno)' },
+      { target: '25,000 Seguidores', targetFollowers: 25000, estimatedDays: 340, projectedDate: 'Octubre 2027' }
     ]
   },
 
